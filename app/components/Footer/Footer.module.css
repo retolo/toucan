@@ -1,0 +1,11 @@
+.listSocialMeadia{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.blockFooter{
+    border-top: solid 1px black;
+}

@@ -1,0 +1,53 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.blockRes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listItemProps{
+    display: flex;
+    gap: 10px;
+    font-size: 20pt;
+}
+
+.blockInfo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20pt;
+}
+
+.price{
+    font-size: 20pt;
+}
+
+
+.orderButton{
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    height: 70px;
+    background-color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20pt;
+    border-radius: 20px;
+    transition: backgroundColor, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+
+.orderButton:hover{
+    background-color: lightslategray;
+}
+
+.blockInfoItem{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

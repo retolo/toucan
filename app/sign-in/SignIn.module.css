@@ -1,0 +1,42 @@
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    
+
+}
+
+.labelInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.blockForm{
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+
+.inputs{
+    background-color: white;
+    border: 1px solid lightslategray;
+    width: 250px;
+    height: 25px;
+    /* border-radius: 20px; */
+}
+
+.inputs:focus{
+    border: solid 1px blue;
+}
+.block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
