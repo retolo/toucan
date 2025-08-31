@@ -57,14 +57,9 @@
     cursor: pointer;
 }
 
-.listProp{
-    display: flex;
-    gap: 10px;
-    margin-top: 30px;
-    font-size: 14pt;
-    
-}
 
-.listProp > li{
+.textLog{
+    font-size: 14pt;
+    margin-top: 30px;
     cursor: pointer;
 }

@@ -1,4 +1,11 @@
+import Link from 'next/link';
 import css from './SignIn.module.css'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Login',
+    description: 'Login Page'
+}
 function SignIn(){
     return(
         <div className={css.blockForm}>
@@ -6,14 +13,18 @@ function SignIn(){
                 <form className={css.formWrapper}>
                     <label className={css.labelInput}>
                         Email
-                        <input className={css.inputs} name='email' type="email"/>
+                        <input required className={css.inputs} name='email' type="email"/>
                     </label>
                     
                     <label className={css.labelInput}>
                         Password
-                        <input className={css.inputs} name='password' type="password"/>
+                        <input required className={css.inputs} name='password' type="password"/>
                     </label>
-                    <button type="submit">Вхід</button>
+                    <button className={css.buttonSign} type="submit">Вхід</button>
+                    <ul className={css.listProp}>
+                        <li><Link href={'/sign-up'}>Зареєструватися</Link></li>
+                        <li>Забув пароль?</li>
+                    </ul>
                 </form>
             </div>
         </div>
