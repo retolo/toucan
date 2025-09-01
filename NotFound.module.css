@@ -1,0 +1,27 @@
+.blockNotFound{
+    width: 250px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 30px;
+}
+
+.error{
+    font-size: 20pt;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.textError{
+    font-size: 16pt;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.teamError{
+    color: gray;
+    font-size: 14pt;
+    text-decoration: underline;
+}
+
+.errorList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

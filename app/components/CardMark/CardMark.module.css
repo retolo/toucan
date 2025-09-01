@@ -25,7 +25,7 @@
 }
 
 .price{
-    font-size: 20pt;
+    font-size: 35pt;
 }
 
 
@@ -52,3 +52,47 @@
     gap: 20px;
 }
 
+.itemName{
+    font-size: 35pt;
+}
+
+.sizesText{
+    font-size: 35pt;
+}
+
+.listItem{
+    font-size: 35pt;
+}
+
+.descrItem{
+    color: gray;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.descrItemLink{
+    color: gray;
+    text-decoration: underline;
+    
+}
+
+
+
+.backdrop{
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 250px;
+    padding: 10px;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms;
+}
+.wrapper{
+    width: 250px;
+    position: relative;
+    height: 0px;
+}
+
+.wrapper:hover .backdrop {
+    visibility: visible;
+    opacity: 1;
+}

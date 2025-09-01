@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 320px;
+    width: 270px;
     height: 320px;
     /* border: 1px solid black; */
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -23,5 +23,8 @@
 
 .listProducts{
     display: flex;
-    gap: 40px
+    gap: 40px;
+    flex-wrap: wrap;
+    /* flex-grow: 1; */
+    
 }

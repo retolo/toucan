@@ -16,13 +16,42 @@ interface ItemProps{
     imgFront: string,
     price: string,
     name: string,
-    sizes: string[]
+    sizes: string[],
+    info: string[]
 }
 const items = [
-    {id: '1', imgFront: '/items/one.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE', sizes: ['S', 'M', 'L']},
-    {id: '2', imgFront: '/items/two.jpg', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE', sizes: ['S', 'M', 'L']},
-    {id: '3', imgFront: '/items/three.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE', sizes: ['S', 'M', 'L']},
-    {id: '4', imgFront: '/items/four.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE', sizes: ['S', 'M', 'L']}
+    {
+        id: '1', 
+        imgFront: '/items/one.jpg', 
+        price: '3499 UAH', 
+        name: 'Project G/R CUNTIER ZIP HOODIE', 
+        sizes: ['S', 'M', 'L'], 
+        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- РЕТРО-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
+    },  
+    {
+        id: '2', 
+        imgFront: '/items/two.jpg', 
+        price: '3099 UAH', 
+        name: 'Project G/R LONDON ZIP HOODIE', 
+        sizes: ['S', 'M', 'L'],
+        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- СКЛАДЕННИЙ-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
+    },
+    {
+        id: '3', 
+        imgFront: '/items/three.jpg', 
+        price: '3499 UAH', 
+        name: 'Project G/R CUNTIER ZIP HOODIE', 
+        sizes: ['S', 'M', 'L'],
+        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- РЕТРО-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
+    },
+    {
+        id: '4', 
+        imgFront: '/items/four.jpg', 
+        price: '3499 UAH', 
+        name: 'Project G/R CUNTIER ZIP HOODIE', 
+        sizes: ['S', 'M', 'L'],
+        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- РЕТРО-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
+    }
 ]
 
 
@@ -98,19 +127,37 @@ function CardMark({id}: CardMarkProps){
                     <div className={css.blockInfoItem}>
                         {item !== undefined &&
                             <>
-                            <h1>{item.name}</h1>
+                            <h1 className={css.itemName}>{item.name}</h1>
                             <div className={css.blockInfo}>
-                                <p>Розміри: </p>
+                                <p className={css.sizesText}>Розміри: </p>
+                                
                                 <ul className={css.listItemProps}>
                                {item !== undefined && item.sizes.map((size) =>(
                                 
-                                <li key={size}>{size}</li>
+                                <li className={css.listItem} key={size}>{size}</li>
                                ))}
                             </ul>
                             </div>
                             
                             <p className={css.price}>{item.price}</p>
                             <a target="_blank" href="https://t.me/toucandunstor3menegger"><button className={css.orderButton} type="button">Замовити</button></a>
+                            
+                            <a className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">Заміри речей зможете дізнатися у менеджера</a>
+                            <div className={css.wrapper}>
+                                <div className={css.descrItem}>Особливості речі</div>
+                                <div className={css.backdrop}>
+                                    <ul>
+                                        {item !== undefined && item.info.map((value) =>(
+                                            <li className={css.descrItemList} key={value}>{value}</li>
+                                        ))
+                                            
+                                        
+                                        }
+                                            
+                                        
+                                    </ul>
+                                </div>
+                            </div>
                             </>
                             
                             
