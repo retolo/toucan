@@ -10,3 +10,6 @@
 .blockFooter{
     border-top: solid 1px black;
 }
+.footer{
+    height: 150px;
+}

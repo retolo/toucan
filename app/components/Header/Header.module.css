@@ -3,17 +3,18 @@
     
 }
 .container{
-    max-width: 2000px;
-    display: flex;
-    
-    align-items: center;
-    justify-content: space-around;
+    max-width: 1200px;
     margin: 0 auto;
+
 }
-
-
 .listNav{
     display: flex;
-    gap: 12px;
-    font-size: 18pt;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }
+
+
+

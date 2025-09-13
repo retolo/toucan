@@ -8,29 +8,28 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 
 function SignUp(){
     const router = useRouter();
-    const {user, setUserData} = useUserData()
+    const {users, setUserData} = useUserData()
+    
     const handleRegister = (formData: FormData) =>{
+        
         const values = Object.fromEntries(formData) as unknown as User;
-        if(user !== null){
+        const isEmail = users.some((user) => user.email === values.email)
+        if(isEmail === true){
             toast('Ви вже зареєстровані', {
-                position: 'top-center',
-                theme: 'light',
-                closeOnClick: true,
-                autoClose: 3000,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                transition: Slide,
-                hideProgressBar: false,
-                
-            })
-        }else if(user && user.email !== values.email){
-            
-                
-        }
-        else{
-            
-            setUserData(values);
+                    position: 'top-center',
+                    theme: 'light',
+                    closeOnClick: true,
+                    autoClose: 3000,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    transition: Slide,
+                    hideProgressBar: false,
+                    
+                })
+            }
+        else if(isEmail === false){
+            setUserData(values.email, values.password, false);
             toast('Успішна реєстрація', {
                 position: 'top-center',
                 theme: 'light',
@@ -46,9 +45,15 @@ function SignUp(){
             router.push('/sign-in')
         }
         
+        
+        
+            
+        }
+        
+        
          
 
-    }
+    
     return(
         <div className={css.blockForm}>
             <div className={css.block}>
@@ -82,5 +87,6 @@ function SignUp(){
         </div>
     )
 }
+
 
 export default SignUp;

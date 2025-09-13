@@ -2,7 +2,7 @@ import Image from "next/image";
 import css from './Footer.module.css'
 function Footer(){
     return (
-        <footer>
+        <footer className={css.footer}>
             <div className={css.blockFooter}>
                 <ul className={css.listSocialMeadia}>
                     <li><a href="https://t.me/toucandunstore"><Image src={'/telegram-icon.jpg'} alt="telegram-icon" width={35} height={35}/></a></li>

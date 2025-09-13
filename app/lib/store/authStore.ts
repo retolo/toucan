@@ -6,33 +6,40 @@ import { create } from "zustand";
 export type User = {
     email: string
     password: string
+    isAuthenticated: boolean
 }
 
 
 
 type isAuthenticatedStore = {
-    isAuthenticated: boolean
-    user: User | null
-    setUserData: (userData: User) => void;
+    users: User[]
+    // userEmail: string
+    // userPassword: string
+    setUserData: (userDataEmail: string, userDataPassword: string, auth: boolean) => void;
     clearUserData: () => void
 }
 
 
 export const useUserData = create<isAuthenticatedStore>()(
     persist(
-        (set) => ({
-            isAuthenticated: false,
-            user: null,
-            setUserData: (userData: User) =>{
-                set(() => ({user: userData, isAuthenticated: true}))
+        (set, get) => ({
+            users: [],
+            setUserData: (userDataEmail: string, userDataPassword: string, auth: boolean) =>{
+                const currentUsers = get().users;
+                const newUser = {email: userDataEmail, password: userDataPassword, isAuthenticated: auth};
+
+
+                set(() => ({
+                    users: [...currentUsers, newUser]
+                }));
             },
             clearUserData: () =>{
-                set(() => ({user: null, isAuthenticated: false}))
+                set(() => ({users: []}))
             }
         }),
         {
             name: 'user-data',
-            partialize: (state) => ({user: state.user})
+            partialize: (state) => ({users: state.users})
         }
     )
 )

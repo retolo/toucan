@@ -1,0 +1,9 @@
+.listNav{
+    display: flex;
+    gap: 12px;
+    font-size: 18pt;
+}
+
+.logOut{
+    cursor: pointer;
+}
