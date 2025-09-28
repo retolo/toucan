@@ -7,3 +7,22 @@
 .logOut{
     cursor: pointer;
 }
+
+.languages{
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18pt;
+    cursor: pointer;
+}
+
+.languages:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+
+.icons{
+    cursor: pointer;
+}

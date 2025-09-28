@@ -74,3 +74,6 @@ img{
 
 
 
+html{
+    scroll-behavior: smooth;
+}

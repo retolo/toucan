@@ -64,35 +64,50 @@
     font-size: 35pt;
 }
 
-.descrItem{
-    color: gray;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .descrItemLink{
     color: gray;
-    text-decoration: underline;
-    
-}
-
-
-
-.backdrop{
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    width: 250px;
-    padding: 10px;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms;
-}
-.wrapper{
-    width: 250px;
-    position: relative;
-    height: 0px;
+    text-decoration: underline; 
 }
 
 .wrapper:hover .backdrop {
     visibility: visible;
     opacity: 1;
+}
+
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+    width: 120px;
+}
+
+.dropdownContent{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 300px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    pointer-events: none;
+    border-radius: 0.5rem;
+
+}
+
+.dropdown:hover .dropdownContent {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+.dropdownContent > ul > li {
+      color: #374151;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: block;
+    }
+.dropdownContent > ul > li :hover {
+    background: #f3f4f6;
 }

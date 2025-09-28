@@ -3,13 +3,17 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .blockFooter{
     border-top: solid 1px black;
+    width: 100%;
 }
 .footer{
-    height: 150px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

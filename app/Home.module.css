@@ -12,19 +12,24 @@
 
 
 .hero{
+    margin-top: 40px;
+    /* border: 1px solid black; */
     background-image: url("/photo_2025-07-29_20-41-30.jpg");
     height: 500px;
     width: 1200px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border: 1px solid black;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
+    align-items: center; 
     font-size: 32pt;
     font-style: italic;
-
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 30px;
+}
+.textHero{
+    font-size: 44pt;
 }
 
 
@@ -55,6 +60,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 30px;
     padding: 10px;
+    position: relative;
 }
 .headerItems{
     margin-bottom: 25px;
@@ -75,5 +81,46 @@
     margin-bottom: 20px;
 }
 .blockProducts:hover{
+    scale: 1.1;
+}
+
+
+.upButton{
+    /* border: 1px solid #000; */
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+
+    width: 50px;
+    height: 50px;
+    transition: scale, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    cursor: pointer;
+    position: fixed;
+    left: 90%;
+    z-index: 999;
+    
+}
+
+.upButton:hover{
+    scale: 1.1;
+}
+
+
+.helpButton{
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16pt;
+    transition: scale, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+.helpButton:hover{
     scale: 1.1;
 }

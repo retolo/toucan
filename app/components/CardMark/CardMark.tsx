@@ -143,18 +143,15 @@ function CardMark({id}: CardMarkProps){
                             <a target="_blank" href="https://t.me/toucandunstor3menegger"><button className={css.orderButton} type="button">Замовити</button></a>
                             
                             <a className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">Заміри речей зможете дізнатися у менеджера</a>
-                            <div className={css.wrapper}>
-                                <div className={css.descrItem}>Особливості речі</div>
-                                <div className={css.backdrop}>
+
+                            <div className={css.dropdown}>
+                                <p className={css.textPulse}>Особливості речі</p>
+                                <div className={css.dropdownContent}>
                                     <ul>
                                         {item !== undefined && item.info.map((value) =>(
                                             <li className={css.descrItemList} key={value}>{value}</li>
-                                        ))
-                                            
-                                        
-                                        }
-                                            
-                                        
+                                        ))         
+                                        } 
                                     </ul>
                                 </div>
                             </div>

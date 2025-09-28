@@ -6,17 +6,18 @@ import { create } from "zustand";
 export type User = {
     email: string
     password: string
-    isAuthenticated: boolean
+    
 }
 
 
 
 type isAuthenticatedStore = {
     users: User[]
-    // userEmail: string
-    // userPassword: string
-    setUserData: (userDataEmail: string, userDataPassword: string, auth: boolean) => void;
-    clearUserData: () => void
+    isAuthenticated: boolean
+    setUserData: (userDataEmail: string, userDataPassword: string) => void;
+    setAuthenticatedPerson: (authPerson: boolean) => void
+    
+    
 }
 
 
@@ -24,17 +25,21 @@ export const useUserData = create<isAuthenticatedStore>()(
     persist(
         (set, get) => ({
             users: [],
-            setUserData: (userDataEmail: string, userDataPassword: string, auth: boolean) =>{
+            isAuthenticated: false,
+            setUserData: (userDataEmail: string, userDataPassword: string) =>{
                 const currentUsers = get().users;
-                const newUser = {email: userDataEmail, password: userDataPassword, isAuthenticated: auth};
+                const newUser = {email: userDataEmail, password: userDataPassword};
 
 
                 set(() => ({
-                    users: [...currentUsers, newUser]
+                    users: [...currentUsers, newUser],
+                    
                 }));
             },
-            clearUserData: () =>{
-                set(() => ({users: []}))
+            setAuthenticatedPerson: (authPerson: boolean) =>{
+                set(() =>({
+                    isAuthenticated: authPerson,
+                }))
             }
         }),
         {

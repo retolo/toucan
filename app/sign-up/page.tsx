@@ -13,47 +13,28 @@ function SignUp(){
     const handleRegister = (formData: FormData) =>{
         
         const values = Object.fromEntries(formData) as unknown as User;
-        const isEmail = users.some((user) => user.email === values.email)
-        if(isEmail === true){
-            toast('Ви вже зареєстровані', {
-                    position: 'top-center',
-                    theme: 'light',
-                    closeOnClick: true,
-                    autoClose: 3000,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    transition: Slide,
-                    hideProgressBar: false,
-                    
-                })
-            }
-        else if(isEmail === false){
-            setUserData(values.email, values.password, false);
-            toast('Успішна реєстрація', {
+
+
+        if(users.some((user) => user.email === values.email)){
+
+            toast('Ви вже зареєстрованні!', {
                 position: 'top-center',
                 theme: 'light',
                 closeOnClick: true,
                 autoClose: 3000,
-                pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 transition: Slide,
                 hideProgressBar: false,
                 
             })
-            router.push('/sign-in')
+        }else{
+            setUserData(values.email, values.password);
+            router.push('/sign-in');
         }
         
-        
-        
-            
         }
-        
-        
-         
 
-    
     return(
         <div className={css.blockForm}>
             <div className={css.block}>
