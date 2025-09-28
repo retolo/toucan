@@ -2,10 +2,9 @@
 import Link from 'next/link';
 import css from './SignIn.module.css'
 import { useRouter } from 'next/navigation';
-import { User } from '../lib/store/authStore';
 import { useUserData } from '../lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
-import { Field, Form, Formik, FormikHelpers } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import formSchema from '../validation/formSchema';
 
 function SignIn(){
