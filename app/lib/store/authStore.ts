@@ -1,13 +1,9 @@
 import { persist } from "zustand/middleware";
 import { create } from "zustand";
+import { User } from "@/app/types/type";
 
 
 
-export type User = {
-    email: string
-    password: string
-    
-}
 
 
 

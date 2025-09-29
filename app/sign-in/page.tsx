@@ -6,15 +6,13 @@ import { useUserData } from '../lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '../validation/formSchema';
+import { initialValuesEdit } from '../types/interface';
 
 function SignIn(){
     const router = useRouter();
     const {users, setAuthenticatedPerson} = useUserData()
 
-    interface initialValuesEdit{
-        email: string,
-        password: string
-    }
+    
 
     const initialValues: initialValuesEdit ={
         email: '',
@@ -38,7 +36,7 @@ function SignIn(){
                 
             })
             setAuthenticatedPerson(true);
-            router.push('/profile')
+            router.push('/')
         }else if(users.some((user) => user.email === values.email && user.password !== values.password)){
             
             toast('Не правильний пароль або пошта', {
@@ -69,30 +67,37 @@ function SignIn(){
          
 
     }
+
  
     return(
         <div className={css.blockForm}>
             <div className={css.block}>
                 <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleLogin}>
-                    <Form  className={css.formWrapper}>
-                        <fieldset>
+                    
+                        <Form  className={css.formWrapper}>
+                        <fieldset className={css.fieldset}>
                                 
-                            <legend>Email</legend>
+                            <legend className={css.labelInput}>Пошта</legend>
                             <Field required className={css.inputs} name='email' type="email"/>
                             
                             
                             
-                            <legend>Password</legend>
+                            
+                            <legend className={css.labelInput}>Пароль</legend>
                             <Field required className={css.inputs} name='password' type="password"/>
                             
+                            
                             <button className={css.buttonSign} type="submit">Вхід</button>
-                            <ul className={css.listProp}>
+                            
+                        </fieldset>
+                        <ul className={css.listProp}>
                                 <li><Link href={'/sign-up'}>Зареєструватися</Link></li>
                                 <li>Забув пароль?</li>
                             </ul>
-                        </fieldset>
                         
                     </Form>
+                    
+                    
                 </Formik>
                 
                 

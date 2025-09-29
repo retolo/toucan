@@ -12,8 +12,6 @@
 }
 
 .labelInput{
-    display: flex;
-    flex-direction: column;
     font-size: 20pt;
 }
 
@@ -35,10 +33,19 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 14pt;
     padding-left: 12px;
+    margin-bottom: 20px;
+    transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .inputs:focus{
-    border: solid 1px blue;
+    border: solid 1px lightgray;
+    outline: none;
 }
 .block{
     display: flex;
@@ -60,7 +67,7 @@
 .listProp{
     display: flex;
     gap: 10px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     font-size: 14pt;
     
 }

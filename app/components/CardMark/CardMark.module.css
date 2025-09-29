@@ -111,3 +111,9 @@
 .dropdownContent > ul > li :hover {
     background: #f3f4f6;
 }
+
+
+.buttonsList{
+    display:  flex;
+    gap: 20px;
+}

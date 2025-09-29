@@ -4,10 +4,9 @@ import { persist } from "zustand/middleware";
 
 
 interface Theme{
-    dark: boolean
-    light: boolean
-    setThemeDark: () => void
-    setThemeLight: () => void
+    theme: boolean
+    setTheme: (themePerson: boolean) => void
+
 
 }
 
@@ -16,15 +15,14 @@ interface Theme{
 const useThemeData = create<Theme>()(
     persist(
         (set) => ({
-            light: true,
-            dark: false,
-            setThemeDark: () => set({dark: true, light: false}),
-            setThemeLight: () => set({light: true, dark: false}),
+            theme: true,
+            setTheme: (themePerson: boolean) => set({theme: themePerson}),
+
             
         }),
         {
             name: 'theme-choose',
-            partialize: (state) => ({light: state.light, dark: state.dark})
+            partialize: (state) => ({theme: state.theme})
         }
     )
 )

@@ -5,84 +5,42 @@ import css from './CardMark.module.css'
 import 'swiper/css';
 import { Navigation, Thumbs} from 'swiper/modules';
 import { SwiperSlide, Swiper as Slide } from "swiper/react";
-
-
-
-interface CardMarkProps{
-    id: string
-}
-interface ItemProps{
-    id: string,
-    imgFront: string,
-    price: string,
-    name: string,
-    sizes: string[],
-    info: string[]
-}
-const items = [
-    {
-        id: '1', 
-        imgFront: '/items/one.jpg', 
-        price: '3499 UAH', 
-        name: 'Project G/R CUNTIER ZIP HOODIE', 
-        sizes: ['S', 'M', 'L'], 
-        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- РЕТРО-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
-    },  
-    {
-        id: '2', 
-        imgFront: '/items/two.jpg', 
-        price: '3099 UAH', 
-        name: 'Project G/R LONDON ZIP HOODIE', 
-        sizes: ['S', 'M', 'L'],
-        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- СКЛАДЕННИЙ-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
-    },
-    {
-        id: '3', 
-        imgFront: '/items/three.jpg', 
-        price: '3499 UAH', 
-        name: 'Project G/R CUNTIER ZIP HOODIE', 
-        sizes: ['S', 'M', 'L'],
-        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- РЕТРО-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
-    },
-    {
-        id: '4', 
-        imgFront: '/items/four.jpg', 
-        price: '3499 UAH', 
-        name: 'Project G/R CUNTIER ZIP HOODIE', 
-        sizes: ['S', 'M', 'L'],
-        info: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',  '- РЕТРО-ДИЗАЙН',  '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',  '- ПОШКОДЖЕНІ ДЕТАЛІ']
-    }
-]
-
-
-
-
+import { itemsMark } from "@/app/db/db";
+import { useUserData } from "@/app/lib/store/authStore";
+import { Slide as ToastSlide, ToastContainer, toast } from 'react-toastify';
+import { CardMarkProps, ItemProps } from "@/app/types/interface";
+import useCartItem from "@/app/lib/store/cartStore";
 
 function CardMark({id}: CardMarkProps){
     const [item, setItem] = useState<ItemProps | undefined>(undefined)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
-
-
+    const {isAuthenticated} = useUserData();
+    const {setItemCart} = useCartItem();
 
    useEffect(() =>{
-    const findItem = items.find((item) => item.id === id);
+    const findItem = itemsMark.find((item) => item.id === id);
     setItem(findItem) 
    }, [id])
+
+   const handleAddItemCart = () =>{
+    if(!isAuthenticated){
+        console.log('Спочатку потрібно увійти в аккаунт!')
+        
+    }else{
+        
+    }
+   }
         return(
         <>
             <div className={css.container}>
                 <div className={css.blockRes}>
                     <div className={css.gallery}>
-                        
-                        
-                    </div>    
+                </div>    
 
                     <div>
                         <div className="swiper">
-                            
                            <Slide
-                                
                                 spaceBetween={10}
                                 navigation={{
                                         nextEl: '.swiper-button-next',
@@ -91,13 +49,7 @@ function CardMark({id}: CardMarkProps){
                                 thumbs={{ swiper: thumbsSwiper }}
                                 modules={[Navigation, Thumbs]}
                                 className={css.mainSwiper}
-                                
-                                
-
                             >
-                                
-                            
-                                
                                 <SwiperSlide >
                                     {item !== undefined &&
                                         <Image src={item.imgFront} alt={item.name} width={500} height={500} />
@@ -110,20 +62,10 @@ function CardMark({id}: CardMarkProps){
                                     }
                                     ...
                                 </SwiperSlide>
-                                
                             </Slide>
-
-                            
-                            
-
-                            
-                            
-
-                            
                         </div>
-                        
-                        
                     </div>
+
                     <div className={css.blockInfoItem}>
                         {item !== undefined &&
                             <>
@@ -140,8 +82,16 @@ function CardMark({id}: CardMarkProps){
                             </div>
                             
                             <p className={css.price}>{item.price}</p>
-                            <a target="_blank" href="https://t.me/toucandunstor3menegger"><button className={css.orderButton} type="button">Замовити</button></a>
-                            
+                            <ul className={css.buttonsList}>
+                                <li><a target="_blank" href="https://t.me/toucandunstor3menegger"><button className={css.orderButton} type="button">Замовити</button></a></li>
+                                <li>
+                                    <button onClick={handleAddItemCart} className={css.orderButton} type="button">
+                                        Додати в корзину
+                                    </button>
+                                     
+                                </li>
+                            </ul>
+
                             <a className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">Заміри речей зможете дізнатися у менеджера</a>
 
                             <div className={css.dropdown}>
@@ -156,20 +106,12 @@ function CardMark({id}: CardMarkProps){
                                 </div>
                             </div>
                             </>
-                            
-                            
-                        
                         }
-                        
-                        
                     </div>
                 </div>
             </div>
-        
         </>
     )
-
-
 }
 
 export default CardMark;
