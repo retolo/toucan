@@ -7,8 +7,19 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '../validation/formSchema';
 import { initialValuesEdit } from '../types/interface';
-
+import storageKey from '../constants';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 function SignIn(){
+
+    useEffect(() =>{
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        })
+    })
     const router = useRouter();
     const {users, setAuthenticatedPerson} = useUserData()
 
@@ -36,6 +47,7 @@ function SignIn(){
                 
             })
             setAuthenticatedPerson(true);
+            localStorage.setItem(storageKey, JSON.stringify(true))
             router.push('/')
         }else if(users.some((user) => user.email === values.email && user.password !== values.password)){
             
@@ -71,7 +83,7 @@ function SignIn(){
  
     return(
         <div className={css.blockForm}>
-            <div className={css.block}>
+            <div className={css.block} data-aos='fade-up'>
                 <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleLogin}>
                     
                         <Form  className={css.formWrapper}>

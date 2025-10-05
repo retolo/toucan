@@ -1,19 +1,33 @@
+'use client'
 import Link from "next/link";
 import css from './Home.module.css'
 import Image from "next/image";
 import { itemsHome } from "@/app/db/db";
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function Home(){
+
+
+  useEffect(() =>{
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+  }, []);
+
+
   return(
     <>
       <section  className={css.container}>
         <div className={css.blockHomePage}>
-            <div  className={css.hero}>
+            <div  className={css.hero} data-aos="fade-up">
               <p className={css.textHero}>TOUCANDUN.STOR3 - SWAG IN EVERY HOME</p>
             </div>
             
             
-            <div className={css.blockItems}>
+            <div className={css.blockItems} data-aos="fade-up">
               <h2 className={css.headerItems}>Найпопулярніші товари</h2>
               <a className={css.linkUp} href="#main"><button className={css.upButton} type="button">
                 <svg  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
@@ -22,8 +36,13 @@ function Home(){
               </button>
               </a>
             <ul className={css.listItems}>
-              {itemsHome.map((item) =>(
-                <li className={css.blockProducts} key={item.id}>
+              {itemsHome.map((item, i) =>(
+                <li 
+                  className={css.blockProducts} 
+                  key={item.id}
+                  data-aos="zoom-in"
+                  data-aos-delay={i * 100}
+                >
                   <Link href={`/card/${item.id}`}>
                     <Image src={item.img} alt={item.name} width={300} height={300}/>
                   </Link>
@@ -35,19 +54,19 @@ function Home(){
 
           <div className={css.blockHelp}>
                 <ul className={css.listHelp}>
-              <li>
+              <li data-aos='fade-right'>
                 <a href="https://t.me/toucandunstor3menegger" target="_blank">
                   <button className={css.helpButton} type="button">Тех-підтримка</button>
                 </a>
               </li>
 
-              <li>
+              <li data-aos='fade-up'>
                 <a href="https://t.me/toucandunstor3menegger" target="_blank">
                   <button className={css.helpButton} type="button">Менеджер</button>
                 </a>
               </li>
 
-              <li>
+              <li data-aos='fade-left'>
                 <Link href="/about">
                   <button className={css.helpButton} type="button">Про магазин</button>
                 </Link>

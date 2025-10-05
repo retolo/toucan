@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -7,30 +8,46 @@ import { Navigation, Thumbs} from 'swiper/modules';
 import { SwiperSlide, Swiper as Slide } from "swiper/react";
 import { itemsMark } from "@/app/db/db";
 import { useUserData } from "@/app/lib/store/authStore";
-import { Slide as ToastSlide, ToastContainer, toast } from 'react-toastify';
 import { CardMarkProps, ItemProps } from "@/app/types/interface";
-import useCartItem from "@/app/lib/store/cartStore";
+import { CartItem } from "@/app/types/type";
+import Modal from "../Modal/Modal";
 
 function CardMark({id}: CardMarkProps){
     const [item, setItem] = useState<ItemProps | undefined>(undefined)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [itemCart, setItemCartOne] = useState<CartItem | undefined>(undefined)
+
     const {isAuthenticated} = useUserData();
-    const {setItemCart} = useCartItem();
+    
+    
 
    useEffect(() =>{
     const findItem = itemsMark.find((item) => item.id === id);
     setItem(findItem) 
    }, [id])
 
-   const handleAddItemCart = () =>{
+   const handleAddItemCart = (item: CartItem) =>{
+    
     if(!isAuthenticated){
         console.log('Спочатку потрібно увійти в аккаунт!')
         
     }else{
+        setItemCartOne(item)
+        setIsOpen(true)
+        console.log(item)
         
     }
    }
+
+   const handleClose = () =>{
+    setIsOpen(false);
+   }
+
+   
+
+
+
         return(
         <>
             <div className={css.container}>
@@ -52,13 +69,13 @@ function CardMark({id}: CardMarkProps){
                             >
                                 <SwiperSlide >
                                     {item !== undefined &&
-                                        <Image src={item.imgFront} alt={item.name} width={500} height={500} />
+                                        <Image src={item.img} alt={item.name} width={500} height={500} />
                                     }
                                     ...
                                 </SwiperSlide>
                                 <SwiperSlide >
                                     {item !== undefined &&
-                                        <Image src={item.imgFront} alt={item.name} width={500} height={500} />
+                                        <Image src={item.img} alt={item.name} width={500} height={500} />
                                     }
                                     ...
                                 </SwiperSlide>
@@ -85,7 +102,7 @@ function CardMark({id}: CardMarkProps){
                             <ul className={css.buttonsList}>
                                 <li><a target="_blank" href="https://t.me/toucandunstor3menegger"><button className={css.orderButton} type="button">Замовити</button></a></li>
                                 <li>
-                                    <button onClick={handleAddItemCart} className={css.orderButton} type="button">
+                                    <button onClick={() => handleAddItemCart(item)} className={css.orderButton} type="button">
                                         Додати в корзину
                                     </button>
                                      
@@ -110,6 +127,11 @@ function CardMark({id}: CardMarkProps){
                     </div>
                 </div>
             </div>
+
+
+            {isOpen &&
+                <Modal onClose={handleClose} item={itemCart !== undefined ? itemCart: undefined}/>
+            }
         </>
     )
 }

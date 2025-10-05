@@ -3,7 +3,7 @@ export interface CardMarkProps{
 }
 export interface ItemProps{
     id: string,
-    imgFront: string,
+    img: string,
     price: string,
     name: string,
     sizes: string[],
@@ -12,6 +12,6 @@ export interface ItemProps{
 
 
 export interface initialValuesEdit{
-        email: string,
-        password: string
-    }
+    email: string,
+    password: string
+}

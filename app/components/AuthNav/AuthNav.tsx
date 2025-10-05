@@ -4,15 +4,18 @@ import useThemeData from "@/app/lib/store/themeStore";
 import Link from "next/link";
 import css from './Authnav.module.css'
 import { useRouter } from "next/navigation";
-
+import storageKey from "@/app/constants";
 function AuthNav(){
 
     const router = useRouter()
-    const {isAuthenticated, setAuthenticatedPerson} = useUserData();
+    const {setAuthenticatedPerson} = useUserData();
     const {theme, setTheme} = useThemeData();
-
+    
+    const getAuth = localStorage.getItem(storageKey);
     const handleLogOut = () =>{
         setAuthenticatedPerson(false);;
+        
+        localStorage.setItem(storageKey, JSON.stringify(false))
         router.push('/')
     }
 
@@ -29,7 +32,7 @@ function AuthNav(){
 
     return(
         <>
-            {isAuthenticated
+            {getAuth && JSON.parse(getAuth)
                 ? <ul  className={css.listNav}>
                     {theme === true
                         ?  <li onClick={handelTheme}>

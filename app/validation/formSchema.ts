@@ -3,7 +3,9 @@ import * as yup from 'yup'
 
 
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
-const emailRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+const emailRules = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
 
 const formSchema = yup.object({
     email: yup.string().email('Будь ласка введіть коректну пошту').required("Обово'язково"),

@@ -23,7 +23,7 @@ export const itemsHome = [
 export const itemsMark = [
     {
         id: '1', 
-        imgFront: '/items/one.jpg', 
+        img: '/items/one.jpg', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'], 
@@ -31,7 +31,7 @@ export const itemsMark = [
     },  
     {
         id: '2', 
-        imgFront: '/items/two.jpg', 
+        img: '/items/two.jpg', 
         price: '3099 UAH', 
         name: 'Project G/R LONDON ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -39,7 +39,7 @@ export const itemsMark = [
     },
     {
         id: '3', 
-        imgFront: '/items/three.jpg', 
+        img: '/items/three.jpg', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -47,7 +47,7 @@ export const itemsMark = [
     },
     {
         id: '4', 
-        imgFront: '/items/four.jpg', 
+        img: '/items/four.jpg', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -55,7 +55,7 @@ export const itemsMark = [
     },
         {
         id: '5', 
-        imgFront: '/items/one.jpg', 
+        img: '/items/one.jpg', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'], 
@@ -63,7 +63,7 @@ export const itemsMark = [
     },  
     {
         id: '6', 
-        imgFront: '/items/two.jpg', 
+        img: '/items/two.jpg', 
         price: '3099 UAH', 
         name: 'Project G/R LONDON ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -71,7 +71,7 @@ export const itemsMark = [
     },
     {
         id: '7', 
-        imgFront: '/items/three.jpg', 
+        img: '/items/three.jpg', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -79,7 +79,7 @@ export const itemsMark = [
     },
     {
         id: '8', 
-        imgFront: '/items/four.jpg', 
+        img: '/items/four.jpg', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],

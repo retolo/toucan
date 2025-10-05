@@ -7,8 +7,19 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '../validation/formSchema';
 import { validateEmail, validatePassword } from '../validation/formSchema';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 function SignUp(){
+
+    useEffect(() =>{
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        })
+    })
     const router = useRouter();
     const {users, setUserData} = useUserData()
 
@@ -47,7 +58,7 @@ function SignUp(){
 
     return(
         <div className={css.blockForm}>
-            <div className={css.block}>
+            <div className={css.block} data-aos='fade-up'>
                 <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleRegister}>
                     {({errors, touched}) =>(
                         <Form  className={css.formWrapper}>
