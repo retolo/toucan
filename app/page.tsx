@@ -13,11 +13,10 @@ function Home(){
     AOS.init({
       duration: 800,
       offset: 100,
-      once: true
+      once: true,
     });
-  }, []);
-
-
+  })
+    
   return(
     <>
       <section  className={css.container}>
@@ -44,7 +43,7 @@ function Home(){
                   data-aos-delay={i * 100}
                 >
                   <Link href={`/card/${item.id}`}>
-                    <Image src={item.img} alt={item.name} width={300} height={300}/>
+                    <Image src={item.img} alt={item.name} width={300} height={300} />
                   </Link>
                 {item.name}
                 </li>

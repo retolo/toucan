@@ -12,8 +12,13 @@ function Cart(){
         <div className={css.container}>
             <div className={css.blockCart}>
                 <div className={css.wrapper}>
-                    <h2 className={css.header}>Корзина</h2>
+                    <div className={css.blockHeaders}>
+                        <h2 className={css.header}>Корзина</h2>
+                        <Link href={`/orders`}><h2 className={css.header}>Ваші замовлення</h2></Link>
+                    </div>
+                    
                     <ul className={css.listCart}>
+                        
                         {items.map((item) =>(
                         
                                  <li key={item.id}>
@@ -31,6 +36,7 @@ function Cart(){
                         ))}
                         
                     </ul>
+                    
                 </div>
                 
             </div>

@@ -12,7 +12,11 @@ function Modal({item, onClose}: ModalProps){
     const [selectedSize, setSelectedSize] = useState(item?.sizes[0] ?? "");
 
     const {setItemCart} = useCartItem();
-    console.log(item);
+    const handelCloseAdd = (item: CartItem | undefined) =>{
+        if(item !== undefined)
+            setItemCart({id: item.id, img: item.img, price: item.price, name: item.name, sizes: [selectedSize], info: item.info});
+        onClose();
+    }
     return(
         <div className={css.backDrop}>
             <div className={css.modal}>
@@ -45,7 +49,7 @@ function Modal({item, onClose}: ModalProps){
                     
                     
                 </div>
-                <button className={css.addButton} onClick={() => item && setItemCart({id: item.id, img: item.img, price: item.price, name: item.name, sizes: [selectedSize], info: item.info})} type='button'>Додати в корзину</button>
+                <button className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>Додати в корзину</button>
                 
 
             </div>

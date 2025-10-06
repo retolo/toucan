@@ -12,3 +12,15 @@ export type CartItem = {
     sizes: string[],
     info: string[]
 }
+
+
+
+export type OrderItem = {
+    id: string,
+    idOrder: string,
+    img: string,
+    price: string,
+    name: string,
+    size: string,
+    
+}
