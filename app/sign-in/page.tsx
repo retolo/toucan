@@ -27,7 +27,8 @@ function SignIn(){
 
     const initialValues: initialValuesEdit ={
         email: '',
-        password: ''
+        password: '',
+        showPassword: false,
     }
     
     
@@ -85,34 +86,46 @@ function SignIn(){
         <div className={css.blockForm}>
             <div className={css.block} data-aos='fade-up'>
                 <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleLogin}>
-                    
+                    {({values, setFieldValue}) =>(
                         <Form  className={css.formWrapper}>
-                        <fieldset className={css.fieldset}>
+
+                            <div className={css.inputWrapper}>
+
+                                <Field placeholder=' ' required className={css.inputs} name='email' type="email"/>
+
+                                <label className={css.labelInput}>Пошта</label>
+
+                            </div>
+
+                            <div className={css.inputWrapper}>
+
+                                <Field placeholder=' ' id='password' required className={css.inputs} name='password' type={values.showPassword ? 'text' : 'password'}/>
                                 
-                            <legend className={css.labelInput}>Пошта</legend>
-                            <Field required className={css.inputs} name='email' type="email"/>
-                            
-                            
-                            
-                            
-                            <legend className={css.labelInput}>Пароль</legend>
-                            <Field required className={css.inputs} name='password' type="password"/>
-                            
-                            
+                                <label className={css.labelInput}>Пароль</label>
+
+                            </div>
+                            <Field name="showPassword" id="showPassword" type="checkbox" className={css.togglePsd} onClick={() => setFieldValue('showPassword', !values.showPassword)}/>
+    
+    
+
+                                
+
                             <button className={css.buttonSign} type="submit">Вхід</button>
-                            
-                        </fieldset>
+                                       
                         <ul className={css.listProp}>
-                                <li><Link href={'/sign-up'}>Зареєструватися</Link></li>
-                                <li>Забув пароль?</li>
-                            </ul>
+
+                            <li><Link href={'/sign-up'}>Зареєструватися</Link></li>
+
+                            <li>Забув пароль?</li>
+
+                        </ul>
                         
                     </Form>
-                    
+                    )}
+
+                        
                     
                 </Formik>
-                
-                
                 
                 <ToastContainer
                     position="top-center"
@@ -125,7 +138,6 @@ function SignIn(){
                     pauseOnHover
                     theme="light"
                     transition={Slide}
-                
                 />
             </div>
         </div>

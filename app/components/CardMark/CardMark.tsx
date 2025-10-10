@@ -8,7 +8,7 @@ import { Navigation, Thumbs} from 'swiper/modules';
 import { SwiperSlide, Swiper as Slide } from "swiper/react";
 import { itemsMark } from "@/app/db/db";
 import { CardMarkProps, ItemProps } from "@/app/types/interface";
-import { CartItem, OrderItem } from "@/app/types/type";
+import { CartItem, OrderItems } from "@/app/types/type";
 import Modal from "../Modal/Modal";
 import ModalOrder from "../ModalOrder/ModalOrder";
 import storageKey from "@/app/constants";
@@ -19,11 +19,10 @@ function CardMark({id}: CardMarkProps){
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isOpenOrder, setIsOpenOrder] = useState<boolean>(false);
     const [itemCart, setItemCartOne] = useState<CartItem | undefined>(undefined)
-    const [itemOrder, setItemOrder] = useState<OrderItem | undefined>(undefined)
+    const [itemOrder, setItemOrder] = useState<OrderItems | undefined>(undefined)
 
     
     const getAuth = localStorage.getItem(storageKey);
-    const idOrder = crypto.randomUUID();
 
    useEffect(() =>{
     const findItem = itemsMark.find((item) => item.id === id);
@@ -37,13 +36,11 @@ function CardMark({id}: CardMarkProps){
         
     }else{
         setItemCartOne(item)
-        setIsOpen(true)
-        console.log(item)
-        
+        setIsOpen(true)    
     }
    }
 
-   const handleAddItemOrder = (order: OrderItem) =>{
+   const handleAddItemOrder = (order: OrderItems) =>{
     
     if(getAuth && JSON.parse(getAuth) === false){
         console.log('Спочатку потрібно увійти в аккаунт!')
@@ -51,16 +48,11 @@ function CardMark({id}: CardMarkProps){
     }else{
         setItemOrder(order)
         setIsOpenOrder(true);
-        console.log(item)
-        
     }
    }
 
    const handleClose = () =>{
     setIsOpen(false);
-   }
-   const handelOpenOrderModal = () =>{
-        setIsOpenOrder(true);
    }
 
    const handelCloseOrder = () =>{
@@ -123,7 +115,7 @@ function CardMark({id}: CardMarkProps){
                             
                             <p className={css.price}>{item.price}</p>
                             <ul className={css.buttonsList}>
-                                <li><button onClick={() => handleAddItemOrder({id: item.id, idOrder: idOrder, name: item.name, price: item.price, size: item.sizes[0], img: item.img})} className={css.orderButton} type="button">Замовити</button></li>
+                                <li><button onClick={() => handleAddItemOrder({id: item.id, idOrder: String(Date.now()), name: item.name, price: item.price, img: item.img, size: item.sizes})} className={css.orderButton} type="button">Замовити</button></li>
                                 <li>
                                     <button onClick={() => handleAddItemCart(item)} className={css.orderButton} type="button">
                                         Додати в корзину
@@ -156,7 +148,7 @@ function CardMark({id}: CardMarkProps){
                 <Modal onClose={handleClose} item={itemCart !== undefined ? itemCart: undefined}/>
             }
             {isOpenOrder &&
-                <ModalOrder sizes={itemCart !== undefined ? itemCart.sizes: undefined} onClose={handelCloseOrder} order={itemOrder !== undefined ? itemOrder: undefined}/>
+                <ModalOrder sizes={itemOrder !== undefined ? itemOrder.size: undefined} onClose={handelCloseOrder} orders={itemOrder !== undefined ? itemOrder: undefined}/>
             }
         </>
     )

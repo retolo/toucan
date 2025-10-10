@@ -2,26 +2,29 @@
 
 import useOrderData from "@/app/lib/store/ordersStore"
 import css from './ModalOrder.module.css'
-import { OrderItem } from "@/app/types/type"
-import { useState } from "react"
+import { OrderItems, UserOrderForm} from "@/app/types/type"
+
 
 interface ModalOrderProps{
-    order: OrderItem | undefined
+    orders: OrderItems | undefined
     sizes: string[] | undefined
     onClose: () => void
 }
 
-function ModalOrder({sizes, order, onClose}: ModalOrderProps){
+function ModalOrder({sizes, orders, onClose}: ModalOrderProps){
 
     const {setOrder} = useOrderData()
-    const idOrder = crypto.randomUUID();
 
-    const [size, setSize] = useState<string>('')
-    const handelCloseAdd = (order: OrderItem | undefined) =>{
-            if(order !== undefined)
-                setOrder({id: order.id, idOrder: idOrder, img: order.img, price: order.price, name: order.name, size: size});
+
+
+    const handelFormOrder =  (formData: FormData) =>{
+        const values = Object.fromEntries(formData) as unknown as UserOrderForm
+        console.log(values)
+        if(values !== undefined && orders !== undefined){
+            setOrder({id: orders.id, idOrder: orders.idOrder, img: orders.img, price: orders.price, name: orders.name, size: [values.size], city: values.city, warehouseId: values.warehouseId, payment: values.payment});
             onClose();
         }
+    }
      return(
         <div className={css.backDrop}>
             <div className={css.modal}>
@@ -40,35 +43,35 @@ function ModalOrder({sizes, order, onClose}: ModalOrderProps){
                 <h3 className={css.header}>Зробити замовлення</h3>
 
                 <div className={css.wrapper}>
-                    <form className={css.formBlock}>
+                    <form action={handelFormOrder} className={css.formBlock}>
                         <label className={css.label}>
                         Вибір оплати
-                        <select className={css.orderVariants}>
-                            <option>При отриманні</option>
-                            <option>Картою на сайті</option>
+                        <select required name="payment" className={css.orderVariants}>
+                            <option value={'При отриманні'}>При отриманні</option>
+                            <option value={'Картою на сайті'}>Картою на сайті</option>
                         </select>
                         </label>
 
                         <label className={css.label}>
-                        Вибір оплати
-                        <select onChange={(e) => setSize(e.target.value)} className={css.orderVariants}>
-                            <option value={sizes && sizes[0]}>{sizes && sizes[0]}</option>
-                            <option value={sizes && sizes[1]}>{sizes && sizes[1]}</option>
-                            <option value={sizes && sizes[2]}>{sizes && sizes[2]}</option>
+                        Вибір розміру
+                        <select  required name="size"  className={css.orderVariants}>
+                            {sizes && sizes.map((size) =>(
+                                <option key={size} value={size}>{size}</option>
+                            ))}
                         </select>
                         </label>
 
                         <label className={css.label}>
                         Місто
-                        <input className={css.inputsOrder} type="text" required />
+                        <input name="city" className={css.inputsOrder} type="text" required />
                         </label>
 
                         <label className={css.label}>
                         Номер відділення нової пошти
-                        <input className={css.inputsOrder} type="text" required />
+                        <input name="warehouseId" className={css.inputsOrder} type="text" required />
                         </label>
 
-                        <button className={css.addButton} onClick={() => handelCloseAdd(order)} type="submit">
+                        <button className={css.addButton}  type="submit">
                         Зробити замовлення
                         </button>
                     </form>

@@ -1,13 +1,13 @@
 import {create} from 'zustand'
 import { persist } from "zustand/middleware";
-import { OrderItem } from '@/app/types/type';
+import { UserOrderItem } from '@/app/types/type';
 import Orders from '@/app/orders/page';
 
 
 interface Orders{
-    orders: OrderItem[]
-    setOrder: (order: OrderItem) => void
-    deleteOrder: (order: OrderItem) => void
+    orders: UserOrderItem[]
+    setOrder: (order: UserOrderItem) => void
+    deleteOrder: (order: UserOrderItem) => void
 }
 
 
@@ -17,9 +17,9 @@ const useOrderData = create<Orders>()(
     persist(
         (set, get) =>({
             orders: [],
-            setOrder: (order: OrderItem) =>{
+            setOrder: (order: UserOrderItem) =>{
                 const currentOrders = get().orders;
-                const newOrder = {id: order.id, idOrder: order.idOrder, img: order.img, price: order.price, name: order.name, size: order.size};
+                const newOrder = {id: order.id, idOrder: order.idOrder, img: order.img, price: order.price, name: order.name, size: order.size, city: order.city, warehouseId: order.warehouseId, payment: order.payment};
 
                 set(() => ({
                     
@@ -27,7 +27,7 @@ const useOrderData = create<Orders>()(
                 }))
 
             },
-            deleteOrder: (orderDelete: OrderItem) =>{
+            deleteOrder: (orderDelete: UserOrderItem) =>{
                 const currentOrders = get().orders;
                 const filter = currentOrders.filter((order) => order.idOrder !== orderDelete.idOrder);
 

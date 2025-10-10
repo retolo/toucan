@@ -13,5 +13,6 @@ export interface ItemProps{
 
 export interface initialValuesEdit{
     email: string,
-    password: string
+    password: string,
+    showPassword: boolean
 }

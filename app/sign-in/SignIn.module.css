@@ -1,7 +1,7 @@
 .formWrapper{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    position: relative;
     justify-content: center;
     align-items: center;
     width: 500px;
@@ -10,9 +10,75 @@
     
 
 }
+.togglePsd{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+    top: 210px;
+    left: 380px;
+    border: 1px solid lightslategray;
+    width: 14px;
+    height: 14px;
+    transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.togglePsd:checked{
+    border-color: lightgray;
+}
+
+.togglePsd:checked::after{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 2px;
+    height: 5px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+
+
+.inputs{
+    background-color: white;
+    border: 1px solid lightslategray;
+    width: 300px;
+    height: 40px;
+    /* border-radius: 20px; */
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 14pt;
+    padding-left: 12px;
+    margin-bottom: 20px;
+    transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .labelInput{
-    font-size: 20pt;
+    position: absolute;
+    left: 13px;
+    top:7px;
+    color: lightslategray;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    background-color: #fff;
+}
+
+
+
+.inputs:focus + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
+    transform: translateY(-18px);
+    color: black;
+    font-size: 14pt;
+}
+
+
+
+.inputs:focus{
+    border: solid 1px lightgray;
+    outline: none;
 }
 
 .blockForm{
@@ -23,30 +89,14 @@
 
 }
 
-.inputs{
-    background-color: white;
-    border: 1px solid lightslategray;
-    width: 300px;
-    height: 35px;
-    /* border-radius: 20px; */
-    color: black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 14pt;
-    padding-left: 12px;
-    margin-bottom: 20px;
-    transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
-}
-.fieldset{
-    border: none;
-    display: flex;
-    flex-direction: column;
-    
+
+.inputWrapper {
+  position: relative;
+  width: 300px;
+  margin-bottom: 20px;
 }
 
-.inputs:focus{
-    border: solid 1px lightgray;
-    outline: none;
-}
+
 .block{
     display: flex;
     justify-content: center;
@@ -62,6 +112,7 @@
     height: 45px;
     font-size: 20pt;
     cursor: pointer;
+    margin-bottom: 40px;
 }
 
 .listProp{
@@ -75,3 +126,4 @@
 .listProp > li{
     cursor: pointer;
 }
+
