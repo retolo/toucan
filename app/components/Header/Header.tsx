@@ -1,7 +1,12 @@
 
 import Link from "next/link";
 import css from './Header.module.css'
-import AuthNav from "../AuthNav/AuthNav";
+// import AuthNav from "../AuthNav/AuthNav";
+import dynamic from "next/dynamic";
+
+// ⬇️ импортим клиентский компонент без SSR
+const AuthNav = dynamic(() => import("../AuthNav/AuthNav"), { ssr: false });
+
 function Header(){
     return(
         <header id="main">
