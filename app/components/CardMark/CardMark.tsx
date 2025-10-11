@@ -11,7 +11,7 @@ import { CardMarkProps, ItemProps } from "@/app/types/interface";
 import { CartItem, OrderItems } from "@/app/types/type";
 import Modal from "../Modal/Modal";
 import ModalOrder from "../ModalOrder/ModalOrder";
-import storageKey from "@/app/constants";
+import { useUserData } from "@/app/lib/store/authStore";
 
 function CardMark({id}: CardMarkProps){
     const [item, setItem] = useState<ItemProps | undefined>(undefined)
@@ -20,9 +20,10 @@ function CardMark({id}: CardMarkProps){
     const [isOpenOrder, setIsOpenOrder] = useState<boolean>(false);
     const [itemCart, setItemCartOne] = useState<CartItem | undefined>(undefined)
     const [itemOrder, setItemOrder] = useState<OrderItems | undefined>(undefined)
+    const {isAuthenticated} = useUserData();
 
     
-    const getAuth = localStorage.getItem(storageKey);
+    
 
    useEffect(() =>{
     const findItem = itemsMark.find((item) => item.id === id);
@@ -31,7 +32,7 @@ function CardMark({id}: CardMarkProps){
 
    const handleAddItemCart = (item: CartItem) =>{
     
-    if(getAuth && JSON.parse(getAuth) === false){
+    if(isAuthenticated === false){
         console.log('Спочатку потрібно увійти в аккаунт!')
         
     }else{
@@ -42,7 +43,7 @@ function CardMark({id}: CardMarkProps){
 
    const handleAddItemOrder = (order: OrderItems) =>{
     
-    if(getAuth && JSON.parse(getAuth) === false){
+    if(isAuthenticated === false){
         console.log('Спочатку потрібно увійти в аккаунт!')
         
     }else{

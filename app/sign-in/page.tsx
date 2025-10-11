@@ -7,7 +7,6 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '../validation/formSchema';
 import { initialValuesEdit } from '../types/interface';
-import storageKey from '../constants';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -48,7 +47,6 @@ function SignIn(){
                 
             })
             setAuthenticatedPerson(true);
-            localStorage.setItem(storageKey, JSON.stringify(true))
             router.push('/')
         }else if(users.some((user) => user.email === values.email && user.password !== values.password)){
             
