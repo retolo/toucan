@@ -40,7 +40,7 @@ export const useUserData = create<isAuthenticatedStore>()(
         }),
         {
             name: 'user-data',
-            partialize: (state) => ({users: state.users})
+            partialize: (state) => ({users: state.users, isAuthenticated: state.isAuthenticated})
         }
     )
 )
