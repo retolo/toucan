@@ -10,12 +10,18 @@ function AuthNav(){
     const router = useRouter()
     const {setAuthenticatedPerson} = useUserData();
     const {theme, setTheme} = useThemeData();
+    let auth;
+    if(typeof window !== 'undefined'){
+        auth = localStorage.getItem(storageKey);
+    }
     
-    const getAuth = localStorage.getItem(storageKey);
     const handleLogOut = () =>{
         setAuthenticatedPerson(false);;
         
+        
         localStorage.setItem(storageKey, JSON.stringify(false))
+        
+        
         router.push('/')
     }
 
@@ -32,7 +38,7 @@ function AuthNav(){
 
     return(
         <>
-            {getAuth && JSON.parse(getAuth)
+            {auth && JSON.parse(auth)
                 ? <ul  className={css.listNav}>
                     {theme === true
                         ?  <li onClick={handelTheme}>
