@@ -5,15 +5,19 @@ import Link from "next/link";
 import css from './Authnav.module.css'
 import { useRouter } from "next/navigation";
 import storageKey from "@/app/constants";
+import { useEffect, useState } from "react";
 function AuthNav(){
 
     const router = useRouter()
     const {setAuthenticatedPerson} = useUserData();
     const {theme, setTheme} = useThemeData();
-    let auth;
-    if(typeof window !== 'undefined'){
-        auth = localStorage.getItem(storageKey);
-    }
+    const [getAuth, setAuth] = useState(false)
+
+    useEffect(() =>{
+        const auth = localStorage.getItem(storageKey);
+        if(auth !== null)
+            setAuth(JSON.parse(auth))
+    })
     
     const handleLogOut = () =>{
         setAuthenticatedPerson(false);;
@@ -38,7 +42,7 @@ function AuthNav(){
 
     return(
         <>
-            {auth && JSON.parse(auth)
+            {getAuth
                 ? <ul  className={css.listNav}>
                     {theme === true
                         ?  <li onClick={handelTheme}>
