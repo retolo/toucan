@@ -3,6 +3,9 @@
     color: gray;
     font-size: 14pt;
     text-decoration: underline;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 122px;
 }
 
 .mainError{
@@ -11,18 +14,24 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .secondError{
-    font-size: 16pt;
+    font-size: 20pt;
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .blockError{
-    width: 250px;
+    width: 750px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 30px;
+    padding: 26px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .errorList{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: 50px;
 }

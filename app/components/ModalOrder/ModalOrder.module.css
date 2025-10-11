@@ -37,25 +37,24 @@
 
 
 
-.addButton{
-    margin: 0 auto;
+.orderButton{
     display: block;
-    margin-top: 90px;
+    margin: 0 auto;
+    margin-top: 40px;
     border: none;
-    border-radius: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: black;
-    font-size: 14pt;
-    width: 200px;
-    height: 70px;
+    background-color: black;
+    width: 300px;
+    height: 45px;
+    font-size: 20pt;
     cursor: pointer;
     transition: scale, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.addButton:hover{
+.orderButton:hover{
     scale: 1.01;
 }
-.addButton:active{
+.orderButton:active{
     scale: 0.99
 }
 
@@ -80,8 +79,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
-    height: 100%;
+    margin-top: 100px;
+    
 }
 
 
@@ -91,7 +90,8 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 18pt;
     cursor: pointer;
-    padding-left: 0;
+    border: none;
+    border-bottom: 1px solid lightslategray;
     margin-bottom: 10px;
     transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -99,12 +99,14 @@
 .orderVariants:focus{
     outline: none;
     box-shadow: none;
-    border: solid 1px lightgray;
+    border-bottom: 1px solid lightslategray;
 }
 
 .inputsOrder{
     background-color: white;
-    border: 1px solid lightslategray;
+    border: none;
+    border-bottom: 1px solid lightslategray;
+    
     width: 100%;
     height: 35px;
     /* border-radius: 20px; */
@@ -113,14 +115,91 @@
     font-size: 14pt;
     padding-left: 12px;
     margin-bottom: 10px;
-    transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
 
 .inputsOrder:focus{
-    border: solid 1px lightgray;
+    
+    border-bottom: solid 1px lightgray;
     outline: none;
 }
 
+.inputsOrder::placeholder{
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.inputsOrder:focus::placeholder{
+    color: lightgray;
+}
 
+.formBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    gap: 40px
+}
+
+
+.sizeList{
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 12px;
+    border: none;
+    border-bottom: 1px solid lightslategray;
+    
+}
+
+.sizeList > li{
+    cursor: pointer;
+    font-size: 18pt;
+    color: gray;
+}
+
+
+.sizeList > li:focus{
+    color: lightgray;
+}
+
+
+.pyamentMethod{
+    display: flex;
+    gap: 20px;
+}
+
+
+.paymentMethodButton{
+    border:none;
+    background-color: gray;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 175px;
+    height: 50px;
+    font-size: 14pt;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.paymentMethodButton:hover{
+    opacity: 0.8;
+}
+.paymentMethodButton:active{
+    scale: 0.98;
+}
+
+.paymentMethodButton:focus{
+    background-color: lightgray;
+}
+
+.blockPayment{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.textPayment{
+    color: gray;
+}

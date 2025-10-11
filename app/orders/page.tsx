@@ -3,9 +3,11 @@ import Link from 'next/link';
 import css from './Orders.module.css'
 import Image from 'next/image';
 import useOrderData from '../lib/store/ordersStore';
-function Orders(){
+import { useTranslation } from 'react-i18next';
 
-    const {orders, deleteOrder} = useOrderData();
+function Orders(){
+    const {t} = useTranslation();
+    const {orders} = useOrderData();
         return(
             <div className={css.container}>
                 <div className={css.blockCart}>
@@ -23,7 +25,7 @@ function Orders(){
                                         <p>{order.name}</p>
                                         <p>{order.price}</p>
                                         <p>{order.size}</p>
-                                        <button className={css.deleteButton} onClick={() => deleteOrder(order)} type='button'>Скасувати замовлення</button>
+                                        <Link href={`/details`}><p className={css.detailsText}>{t("detailsOfOrder")}</p></Link>
                                     
                                 </li>
                                 

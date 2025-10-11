@@ -12,6 +12,7 @@ import { CartItem, OrderItems } from "@/app/types/type";
 import Modal from "../Modal/Modal";
 import ModalOrder from "../ModalOrder/ModalOrder";
 import { useUserData } from "@/app/lib/store/authStore";
+import { useTranslation } from 'react-i18next';
 
 function CardMark({id}: CardMarkProps){
     const [item, setItem] = useState<ItemProps | undefined>(undefined)
@@ -20,10 +21,12 @@ function CardMark({id}: CardMarkProps){
     const [isOpenOrder, setIsOpenOrder] = useState<boolean>(false);
     const [itemCart, setItemCartOne] = useState<CartItem | undefined>(undefined)
     const [itemOrder, setItemOrder] = useState<OrderItems | undefined>(undefined)
+    const [size, setSize] = useState<string>('');
     const {isAuthenticated} = useUserData();
 
     
     
+    const {t} = useTranslation();
 
    useEffect(() =>{
     const findItem = itemsMark.find((item) => item.id === id);
@@ -104,31 +107,31 @@ function CardMark({id}: CardMarkProps){
                             <>
                             <h1 className={css.itemName}>{item.name}</h1>
                             <div className={css.blockInfo}>
-                                <p className={css.sizesText}>Розміри: </p>
+                                <p className={css.sizesText}>{t('sizes')}: </p>
                                 
                                 <ul className={css.listItemProps}>
                                {item !== undefined && item.sizes.map((size) =>(
                                 
-                                <li className={css.listItem} key={size}>{size}</li>
+                                <li onClick={(e) => setSize(e.currentTarget.textContent)} className={css.listItem} key={size}>{size}</li>
                                ))}
                             </ul>
                             </div>
                             
                             <p className={css.price}>{item.price}</p>
                             <ul className={css.buttonsList}>
-                                <li><button onClick={() => handleAddItemOrder({id: item.id, idOrder: String(Date.now()), name: item.name, price: item.price, img: item.img, size: item.sizes})} className={css.orderButton} type="button">Замовити</button></li>
+                                <li><button onClick={() => handleAddItemOrder({id: item.id, idOrder: String(Date.now()), name: item.name, price: item.price, img: item.img, size: item.sizes})} className={css.orderButton} type="button">{t('order')}</button></li>
                                 <li>
                                     <button onClick={() => handleAddItemCart(item)} className={css.orderButton} type="button">
-                                        Додати в корзину
+                                        {t('addToCart')}
                                     </button>
                                      
                                 </li>
                             </ul>
 
-                            <a className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">Заміри речей зможете дізнатися у менеджера</a>
+                            <a className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">{t('measurements')}</a>
 
                             <div className={css.dropdown}>
-                                <p className={css.textPulse}>Особливості речі</p>
+                                <p className={css.textPulse}>{t('FeaturesOfTheThing')}</p>
                                 <div className={css.dropdownContent}>
                                     <ul>
                                         {item !== undefined && item.info.map((value) =>(
@@ -149,7 +152,7 @@ function CardMark({id}: CardMarkProps){
                 <Modal onClose={handleClose} item={itemCart !== undefined ? itemCart: undefined}/>
             }
             {isOpenOrder &&
-                <ModalOrder sizes={itemOrder !== undefined ? itemOrder.size: undefined} onClose={handelCloseOrder} orders={itemOrder !== undefined ? itemOrder: undefined}/>
+                <ModalOrder size={size} onClose={handelCloseOrder} orders={itemOrder !== undefined ? itemOrder: undefined}/>
             }
         </>
     )

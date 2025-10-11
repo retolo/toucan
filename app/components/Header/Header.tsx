@@ -2,7 +2,11 @@
 import Link from "next/link";
 import css from './Header.module.css'
 import AuthNav from "../AuthNav/AuthNav";
+
+
 function Header(){
+
+    
     return(
         <header id="main">
             <div className={css.headerBlock}>

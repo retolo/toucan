@@ -31,7 +31,7 @@ export type UserOrderItem = {
     img: string,
     price: string,
     name: string,
-    size: string[],
+    size: string,
     city: string,
     warehouseId: string,
     payment: string

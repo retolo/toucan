@@ -13,7 +13,7 @@ const NotFound = () =>{
         <div className={css.blockNotFound}>
             <ul className={css.errorList}>
                 <li className={css.error}>404 - Сторінка не знайдена</li>
-                <li className={css.textError}>Вибачте, сторінки, яку ви шукаєте, не існує.</li>
+                <li className={css.textError}>Вибачте, сторінку, яку ви шукаєте, не існує.</li>
             </ul>
             <p className={css.teamError}>Відділ турботи</p>
 

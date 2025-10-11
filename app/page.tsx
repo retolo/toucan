@@ -6,8 +6,10 @@ import { itemsHome } from "@/app/db/db";
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useTranslation } from 'react-i18next';
 function Home(){
 
+    const {t} = useTranslation();
 
   useEffect(() =>{
     AOS.init({
@@ -27,7 +29,7 @@ function Home(){
             
             
             <div className={css.blockItems} data-aos="fade-up">
-              <h2 className={css.headerItems}>Найпопулярніші товари</h2>
+              <h2 className={css.headerItems}>{t('MostPopularProducts')}</h2>
               <a className={css.linkUp} href="#main"><button className={css.upButton} type="button">
                 <svg  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
                   <path fillRule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
@@ -55,19 +57,19 @@ function Home(){
                 <ul className={css.listHelp}>
               <li data-aos='fade-right'>
                 <a href="https://t.me/toucandunstor3menegger" target="_blank">
-                  <button className={css.helpButton} type="button">Тех-підтримка</button>
+                  <button className={css.helpButton} type="button">{t('techSupport')}</button>
                 </a>
               </li>
 
               <li data-aos='fade-up'>
                 <a href="https://t.me/toucandunstor3menegger" target="_blank">
-                  <button className={css.helpButton} type="button">Менеджер</button>
+                  <button className={css.helpButton} type="button">{t('manager')}</button>
                 </a>
               </li>
 
               <li data-aos='fade-left'>
                 <Link href="/about">
-                  <button className={css.helpButton} type="button">Про магазин</button>
+                  <button className={css.helpButton} type="button">{t('aboutStore')}</button>
                 </Link>
               </li>
             </ul>

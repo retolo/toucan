@@ -10,9 +10,12 @@ import { validateEmail, validatePassword } from '../validation/formSchema';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function SignUp(){
 
+
+    const {t} = useTranslation();
     useEffect(() =>{
         AOS.init({
             duration: 800,
@@ -62,23 +65,32 @@ function SignUp(){
                 <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleRegister}>
                     {({errors, touched}) =>(
                         <Form  className={css.formWrapper}>
-                        <fieldset className={css.fieldset}>
 
-                            <legend className={css.labelInput}>Пошта</legend>
-                            <Field required className={css.inputs} name='email' validate={validateEmail} type="email"/>
-                            {errors.email && touched.email && <div className={css.validation}>{errors.email}</div>}
-                            
-                            
-                            
-                            <legend className={css.labelInput}>Пароль</legend>
-                            <Field required className={css.inputs} name='password' validate={validatePassword} type="password"/>
-                            {errors.password && touched.password && <div className={css.validation}>{errors.password}</div>}
+                            <div className={css.inputWrapper}>
+                                <Field placeholder=' ' required className={css.inputs} name='email' validate={validateEmail} type="email"/>
+                                <label className={css.labelInput}>{t('email')}</label>
+                                
+                                {errors.email && touched.email && <div className={css.validation}>{errors.email}</div>}
 
-                            <button className={css.buttonSign} type="submit">Реєстрація</button>
+                            </div>
+
+                            
+                            
+                            
+                            <div className={css.inputWrapper}>
+                                <Field placeholder=' ' required className={css.inputs} name='password' validate={validatePassword} type="password"/>
+                                <label className={css.labelInput}>{t('password')}</label>
+                                {errors.password && touched.password && <div className={css.validation}>{errors.password}</div>}
+                            </div>
+                            
+                            
                             
 
-                        </fieldset>
-                        <Link className={css.textLog} href={'/sign-in'}>Увійти</Link>
+                            <button className={css.buttonSign} type="submit">{t('register')}</button>
+                            
+
+                        
+                        <Link className={css.textLog} href={'/sign-in'}>{t('login')}</Link>
                     </Form>
                     )}
                     

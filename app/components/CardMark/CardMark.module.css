@@ -15,6 +15,7 @@
     display: flex;
     gap: 10px;
     font-size: 20pt;
+    cursor: pointer;
 }
 
 .blockInfo{
@@ -118,4 +119,8 @@
 .buttonsList{
     display:  flex;
     gap: 20px;
+}
+
+.textPulse{
+    width: 120px;
 }

@@ -4,14 +4,17 @@ import useThemeData from "@/app/lib/store/themeStore";
 import Link from "next/link";
 import css from './Authnav.module.css'
 import { useRouter } from "next/navigation";
-// import storageKey from "@/app/constants";
+import '../../i18next';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from "react";
+
 function AuthNav(){
 
     const router = useRouter()
     const {setAuthenticatedPerson, isAuthenticated} = useUserData();
-    const {theme, setTheme} = useThemeData();
+    const {theme, setTheme, setLanguage, language} = useThemeData();
 
-    
+    const {t, i18n} = useTranslation();
     
     const handleLogOut = () =>{
         setAuthenticatedPerson(false);
@@ -26,6 +29,11 @@ function AuthNav(){
         }
         console.log(theme)
     }
+
+    useEffect(() =>{
+        i18n.changeLanguage(language);
+    }, [i18n, language])
+    
 
 
 
@@ -49,14 +57,13 @@ function AuthNav(){
                     
                     }
                     
-                    <li><select className={css.languages}>
-                            <option>UA</option>
-                            <option>RU</option>
-                            <option>EN</option>
+                    <li><select onChange={(e) => setLanguage(e.target.value)} value={i18n.language} className={css.languages}>
+                            <option value={'ua'}>UA</option>
+                            <option value={'en'}>EN</option>
                         </select></li>
-                    <li ><Link href={'/catalog'}>Каталог</Link></li>
-                    <li><Link href={'/cart'}>Корзина</Link></li>
-                    <li className={css.logOut} onClick={handleLogOut}>Вихід</li>
+                    <li ><Link href={'/catalog'}>{t('catalog')}</Link></li>
+                    <li><Link href={'/cart'}>{t('cart')}</Link></li>
+                    <li className={css.logOut} onClick={handleLogOut}>{t('logout')}</li>
                     
                 </ul>
                 : <ul className={css.listNav}>
@@ -75,14 +82,13 @@ function AuthNav(){
                         </li>
                     
                     }
-                    <li><select className={css.languages}>
-                            <option>UA</option>
-                            <option>RU</option>
-                            <option>EN</option>
+                    <li><select onChange={(e) => setLanguage(e.target.value)} value={i18n.language} className={css.languages}>
+                            <option value={'ua'}>UA</option>
+                            <option value={'en'}>EN</option>
                         </select></li>
-                    <li><Link href={'/catalog'}>Каталог</Link></li>
-                    <li><Link href={'/sign-in'}>Вхід</Link></li>
-                    <li><Link href={'/sign-up'}>Реєстрація</Link></li>
+                    <li><Link href={'/catalog'}>{t('catalog')}</Link></li>
+                    <li><Link href={'/sign-in'}>{t('login')}</Link></li>
+                    <li><Link href={'/sign-up'}>{t('register')}</Link></li>
                     
                 </ul>
             }

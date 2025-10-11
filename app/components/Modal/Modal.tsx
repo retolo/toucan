@@ -4,12 +4,14 @@ import { CartItem } from '@/app/types/type';
 import css from './Modal.module.css'
 import useCartItem from '@/app/lib/store/cartStore';
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 interface ModalProps{
     item: CartItem | undefined
     onClose: () => void
 }
 function Modal({item, onClose}: ModalProps){
     const [selectedSize, setSelectedSize] = useState(item?.sizes[0] ?? "");
+    const {t} = useTranslation();
 
     const {setItemCart} = useCartItem();
     const handelCloseAdd = (item: CartItem | undefined) =>{
@@ -23,7 +25,7 @@ function Modal({item, onClose}: ModalProps){
                 <svg onClick={onClose} className={css.icon} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"  viewBox="0 0 16 16">
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
                     </svg>
-                    <h3 className={css.header}>Додати в корзину</h3>
+                    <h3 className={css.header}>{t('addToCart')}</h3>
                 <div className={css.mainContent}>   
                     
                     <ul className={css.modalList}>
@@ -49,7 +51,7 @@ function Modal({item, onClose}: ModalProps){
                     
                     
                 </div>
-                <button className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>Додати в корзину</button>
+                <button className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>{t('addToCart')}</button>
                 
 
             </div>
