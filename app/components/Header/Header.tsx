@@ -1,4 +1,4 @@
-
+'use client'
 import Link from "next/link";
 import css from './Header.module.css'
 // import AuthNav from "../AuthNav/AuthNav";
