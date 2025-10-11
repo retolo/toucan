@@ -14,10 +14,13 @@ function AuthNav(){
     const [getAuth, setAuth] = useState(false)
 
     useEffect(() =>{
-        const auth = localStorage.getItem(storageKey);
-        if(auth !== null)
-            setAuth(JSON.parse(auth))
-    })
+        if(typeof window !== 'undefined'){
+            const auth = localStorage.getItem(storageKey);
+            if(auth !== null)
+                setAuth(JSON.parse(auth))
+        }
+        
+    }, [])
     
     const handleLogOut = () =>{
         setAuthenticatedPerson(false);;
