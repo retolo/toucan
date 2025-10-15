@@ -31,11 +31,8 @@ export const languageSettings = {
         paymentOnWarehouse: 'Оплата при отриманні',
         detailsOfOrder: 'Деталі замовлення',
         deleteCartItem: 'Видалити',
-        RelaxedFit: '- НАПІВОБРАЗНИЙ КРІЙ',
-        ParodyGraphic: '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН',
-        LayeredDesign: '- СКЛАДЕННИЙ-ДИЗАЙН',
-        VintageWashed: '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ',
-        DistressedDetails: '- ПОШКОДЖЕНІ ДЕТАЛІ'
+        backButton: 'Повернутися',
+        itemInfo: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН', '- СКЛАДЕННИЙ-ДИЗАЙН', '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ', '- ПОШКОДЖЕНІ ДЕТАЛІ'],
       }
     },
     en: {
@@ -66,11 +63,8 @@ export const languageSettings = {
         paymentOnWarehouse: 'Pay on delivery',
         detailsOfOrder: 'Order details',
         deleteCartItem: 'Delete',
-        RelaxedFit: '- RELAXED FIT ',
-        ParodyGraphic: '- PARODY GRAPHIC',
-        LayeredDesign: '- LAYERED DESIGN ',
-        VintageWashed: '- VINTAGE WASHED ',
-        DistressedDetails: '- DISSTRESSED DETAILS'
+        backButton: 'Back',
+        itemInfo: ['- RELAXED FIT ', '- PARODY GRAPHIC', '- LAYERED DESIGN ', '- VINTAGE WASHED ', '- DISSTRESSED DETAILS'],
       }
     }
   }

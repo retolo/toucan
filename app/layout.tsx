@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body >
         <Header />
         <main>
           {children}

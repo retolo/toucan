@@ -16,7 +16,7 @@ function Modal({item, onClose}: ModalProps){
     const {setItemCart} = useCartItem();
     const handelCloseAdd = (item: CartItem | undefined) =>{
         if(item !== undefined)
-            setItemCart({id: item.id, img: item.img, price: item.price, name: item.name, sizes: [selectedSize], info: item.info});
+            setItemCart({id: item.id, img: item.img, price: item.price, name: item.name, sizes: [selectedSize], info: item.info, idCartItem: item.idCartItem});
         onClose();
     }
     return(
@@ -51,7 +51,7 @@ function Modal({item, onClose}: ModalProps){
                     
                     
                 </div>
-                <button className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>{t('addToCart')}</button>
+                <button name='button add to cart' className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>{t('addToCart')}</button>
                 
 
             </div>

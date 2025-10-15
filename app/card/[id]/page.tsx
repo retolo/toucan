@@ -24,7 +24,7 @@ export  async function generateMetadata({ params }: Props){
 
 
 async function CardId({params}: Props){
-    const {id} = await params
+    const {id} = await params;
     
     return(
         <Card id={id}/>

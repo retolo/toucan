@@ -1,6 +1,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+ 
+}
+
+.darkMode{
+   --color-body: #1F1F1F;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,13 +17,14 @@
 
 html,
 body {
+  
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
   color: black;
-  background: white;
+  background-color: #fff;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

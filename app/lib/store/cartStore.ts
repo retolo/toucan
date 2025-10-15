@@ -21,7 +21,7 @@ const useCartItem = create<CartItemProps>()(
             setItemCart: (item: CartItem ) =>{
                 const currentItems = get().items;
                 
-                const newItems = {id: item.id, img: item.img, price: item.price, name: item.name, sizes: item.sizes, info: item.info};
+                const newItems = {id: item.id, img: item.img, price: item.price, name: item.name, sizes: item.sizes, info: item.info, idCartItem: item.idCartItem};
 
 
                 set(() => ({
@@ -32,7 +32,7 @@ const useCartItem = create<CartItemProps>()(
             deleteItem: (item: CartItem) =>{
                 const currentItems = get().items;
                 
-                const filterItems = currentItems.filter(cartItem => cartItem.id !== item.id);
+                const filterItems = currentItems.filter(cartItem => cartItem.idCartItem !== item.idCartItem);
 
 
                 set(() => ({

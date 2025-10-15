@@ -11,6 +11,7 @@ export type CartItem = {
     name: string,
     sizes: string[],
     info: string[]
+    idCartItem?: string
 }
 
 
