@@ -95,6 +95,14 @@
     color: white;
 }
 
+:global(html.dark) .inputs + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
+    color: white;
+}
+
+:global(html.light) .inputs:focus + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
+    color: black;
+}
+
 
 
 .inputs:focus{
