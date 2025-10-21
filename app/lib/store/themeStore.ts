@@ -4,9 +4,9 @@ import { persist } from "zustand/middleware";
 
 
 interface Theme{
-    theme: boolean
+    themeMod: boolean
     language: string
-    setTheme: (themePerson: boolean) => void
+    setThemeMod: (themePerson: boolean) => void
     setLanguage: (language: string) => void
 
 
@@ -17,16 +17,16 @@ interface Theme{
 const useThemeData = create<Theme>()(
     persist(
         (set) => ({
-            theme: true,
+            themeMod: true,
             language: 'ua',
-            setTheme: (themePerson: boolean) => set({theme: themePerson}),
+            setThemeMod: (themePerson: boolean) => set({themeMod: themePerson}),
             setLanguage: (language: string) => set({language: language})
 
             
         }),
         {
             name: 'theme-choose',
-            partialize: (state) => ({theme: state.theme, language: state.language})
+            partialize: (state) => ({theme: state.themeMod, language: state.language})
         }
     )
 )

@@ -5,6 +5,7 @@ import css from './Modal.module.css'
 import useCartItem from '@/app/lib/store/cartStore';
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
+
 interface ModalProps{
     item: CartItem | undefined
     onClose: () => void
@@ -36,7 +37,7 @@ function Modal({item, onClose}: ModalProps){
                                 
 
                                 <p>{item.name}</p>
-                                <select onChange={(e) => setSelectedSize(e.target.value)} className={css.sizes}>
+                                <select aria-label='Select a size' name='size-select' onChange={(e) => setSelectedSize(e.target.value)} className={css.sizes}>
                                     <option value={item.sizes[0]}>{item.sizes[0]}</option>
                                     <option value={item.sizes[1]}>{item.sizes[1]}</option>
                                     <option value={item.sizes[2]}>{item.sizes[2]}</option>
@@ -51,7 +52,7 @@ function Modal({item, onClose}: ModalProps){
                     
                     
                 </div>
-                <button name='button add to cart' className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>{t('addToCart')}</button>
+                <button aria-label='Press to push item to cart' name='button-add-to-cart' className={css.addButton} onClick={() => handelCloseAdd(item)} type='button'>{t('addToCart')}</button>
                 
 
             </div>

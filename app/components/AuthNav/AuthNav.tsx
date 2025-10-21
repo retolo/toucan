@@ -4,15 +4,16 @@ import useThemeData from "@/app/lib/store/themeStore";
 import Link from "next/link";
 import css from './Authnav.module.css'
 import { useRouter } from "next/navigation";
-import '../../i18next';
+import '../../utils/i18next';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from "react";
-
+import { useTheme } from "next-themes";
 function AuthNav(){
 
+    const {setTheme} = useTheme();
     const router = useRouter()
     const {setAuthenticatedPerson, isAuthenticated} = useUserData();
-    const {theme, setTheme, setLanguage, language} = useThemeData();
+    const {themeMod, setThemeMod, setLanguage, language} = useThemeData();
 
     const {t, i18n} = useTranslation();
     
@@ -22,12 +23,14 @@ function AuthNav(){
     }
 
     const handelTheme = () =>{
-        if(theme === true){
-            setTheme(false)
+        if(themeMod === true){
+            setThemeMod(false)
+            setTheme('dark');
         }else{
-            setTheme(true)
+            setThemeMod(true)
+            setTheme('light')
         }
-        console.log(theme)
+        console.log(themeMod)
     }
 
     useEffect(() =>{
@@ -41,7 +44,7 @@ function AuthNav(){
         <>
             {isAuthenticated
                 ? <ul  className={css.listNav}>
-                    {theme === true
+                    {themeMod === true
                         ?  <li onClick={handelTheme}>
                         <svg  className={css.iconsTheme} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
                             <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
@@ -57,9 +60,9 @@ function AuthNav(){
                     
                     }
                     
-                    <li><select onChange={(e) => setLanguage(e.target.value)} value={i18n.language} className={css.languages}>
-                            <option value={'ua'}>UA</option>
-                            <option value={'en'}>EN</option>
+                    <li><select aria-label="Select a language" name="language-select" onChange={(e) => setLanguage(e.target.value)} value={i18n.language} className={css.languages}>
+                            <option aria-label="Ukraine language"  value={'ua'}>UA</option>
+                            <option aria-label="English language" value={'en'}>EN</option>
                         </select></li>
                     <li ><Link href={'/catalog'}>{t('catalog')}</Link></li>
                     <li><Link href={'/cart'}>{t('cart')}</Link></li>
@@ -67,7 +70,7 @@ function AuthNav(){
                     
                 </ul>
                 : <ul className={css.listNav}>
-                    {theme === true
+                    {themeMod === true
                         ?  <li onClick={handelTheme}>
                         <svg  className={css.icons} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
                             <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
@@ -82,9 +85,9 @@ function AuthNav(){
                         </li>
                     
                     }
-                    <li><select onChange={(e) => setLanguage(e.target.value)} value={i18n.language} className={css.languages}>
-                            <option value={'ua'}>UA</option>
-                            <option value={'en'}>EN</option>
+                    <li><select aria-label="Select a language" name="language-select"  onChange={(e) => setLanguage(e.target.value)} value={i18n.language} className={css.languages}>
+                            <option aria-label="Ukraine language" value={'ua'}>UA</option>
+                            <option aria-label="English language" value={'en'}>EN</option>
                         </select></li>
                     <li><Link href={'/catalog'}>{t('catalog')}</Link></li>
                     <li><Link href={'/sign-in'}>{t('login')}</Link></li>

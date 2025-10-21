@@ -1,7 +1,7 @@
 import {create} from 'zustand'
 import { persist } from "zustand/middleware";
 import { UserOrderItem } from '@/app/types/type';
-import Orders from '@/app/orders/page';
+
 
 
 interface Orders{

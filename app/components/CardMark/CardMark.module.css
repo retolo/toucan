@@ -30,6 +30,8 @@
 }
 
 
+
+
 .orderButton{
     cursor: pointer;
     border: none;
@@ -38,11 +40,22 @@
     background-color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20pt;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: backgroundColor, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
+
+:global(html.light) .orderButton{
+    color: white;
+    
+}
+
+:global(html.dark) .orderButton{
+    color: white;
+    background-color: gray;
+    
+}
 
 
 .orderButton:hover{
@@ -70,6 +83,10 @@
 .descrItemLink{
     color: gray;
     text-decoration: underline; 
+}
+
+:global(html.dark) .descrItemLink{
+    color: lightgray
 }
 
 .wrapper:hover .backdrop {

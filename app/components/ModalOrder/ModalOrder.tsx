@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next"
 
 interface ModalOrderProps{
     orders: OrderItems | undefined
-    size: string 
+    size: string
     onClose: () => void
 }
 
@@ -52,7 +52,7 @@ function ModalOrder({size, orders, onClose}: ModalOrderProps){
                         
                         <div className={css.blockPayment}>
                             <p className={css.textPayment}>{t('paymentMethod')}: </p>
-                            <ul className={css.pyamentMethod}>
+                            <ul className={css.paymentMethod}>
                                 <li><button onClick={(e) => setPayment(e.currentTarget.textContent)} className={css.paymentMethodButton} type="button">{t('paymentCard')}</button></li>
                                 <li><button onClick={(e) => setPayment(e.currentTarget.textContent)} className={css.paymentMethodButton} type="button">{t('paymentOnWarehouse')}</button></li>
                             </ul>
@@ -60,7 +60,7 @@ function ModalOrder({size, orders, onClose}: ModalOrderProps){
                         
                         
 
-                        <button className={css.orderButton}  type="submit">
+                        <button aria-label="Press to make an order" name="make-an-order-button" className={css.orderButton}  type="submit">
                         {t('makeAnOrder')}
                         </button>
                     </form>

@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 
 function CardMark({id}: CardMarkProps){
     const [item, setItem] = useState<ItemProps | undefined>(undefined)
-    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+    const [thumbsSwiper] = useState<any>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isOpenOrder, setIsOpenOrder] = useState<boolean>(false);
     const [itemCart, setItemCartOne] = useState<CartItem | undefined>(undefined)
@@ -79,7 +79,7 @@ function CardMark({id}: CardMarkProps){
         return(
         <>
             <div className={css.container}>
-                <button onClick={() => router.back()} className={css.backButton} name="back button" type="button">
+                <button aria-label="Press to previous page" onClick={() => router.back()} className={css.backButton} name="back-button" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
                     </svg>
@@ -133,16 +133,16 @@ function CardMark({id}: CardMarkProps){
                             
                             <p className={css.price}>{item.price}</p>
                             <ul className={css.buttonsList}>
-                                <li><button onClick={() => handleAddItemOrder({id: item.id, idOrder: String(Date.now()), name: item.name, price: item.price, img: item.img, size: item.sizes})} className={css.orderButton} type="button">{t('order')}</button></li>
+                                <li><button name="order-button" onClick={() => handleAddItemOrder({id: item.id, idOrder: String(Date.now()), name: item.name, price: item.price, img: item.img, size: item.sizes})} className={css.orderButton} type="button">{t('order')}</button></li>
                                 <li>
-                                    <button name="order button" onClick={() => handleAddItemCart({id: item.id, name: item.name, price: item.price, sizes: item.sizes, info: item.info, img: item.img, idCartItem: String(Date.now())})} className={css.orderButton} type="button">
+                                    <button name="add-cart-button" onClick={() => handleAddItemCart({id: item.id, name: item.name, price: item.price, sizes: item.sizes, info: item.info, img: item.img, idCartItem: String(Date.now())})} className={css.orderButton} type="button">
                                         {t('addToCart')}
                                     </button>
                                      
                                 </li>
                             </ul>
 
-                            <a className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">{t('measurements')}</a>
+                            <a aria-label="To take measurements" className={css.descrItemLink} target="_blank" href="https://t.me/toucandunstor3menegger">{t('measurements')}</a>
 
                             <div className={css.dropdown}>
                                 <p className={css.textPulse}>{t('FeaturesOfTheThing')}</p>

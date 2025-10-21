@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import css from './Orders.module.css'
 import Image from 'next/image';
-import useOrderData from '../lib/store/ordersStore';
+import useOrderData from '@/app/lib/store/ordersStore';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import AOS from 'aos';

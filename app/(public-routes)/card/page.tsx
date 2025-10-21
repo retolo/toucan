@@ -1,4 +1,4 @@
-import CardMark from "../components/CardMark/CardMark";
+import CardMark from "@/app/components/CardMark/CardMark";
 
 interface CardProps{
     id: string

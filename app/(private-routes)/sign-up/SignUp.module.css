@@ -6,17 +6,18 @@
     align-items: center;
     width: 500px;
     height: 500px;
+    border-radius: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     
 
 }
 
 .inputs{
-    background-color: white;
+    
     border: 1px solid lightslategray;
     width: 300px;
     height: 48px;
-    /* border-radius: 20px; */
+    border-radius: 10px;
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 14pt;
@@ -24,6 +25,10 @@
     margin-bottom: 20px;
     
     transition: border, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(html.dark) .inputs{
+    border-color: gray;
 }
 
 .labelInput{
@@ -35,12 +40,23 @@
     background-color: #fff;
 }
 
+:global(html.dark) .labelInput{
+    background-color: transparent;
+    
+}
+
+
+
 
 
 .inputs:focus + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
     transform: translateY(-25px);
     color: black;
     font-size: 14pt;
+}
+
+:global(html.dark) .inputs:focus + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
+    color: white;
 }
 
 
@@ -55,6 +71,11 @@ input:-webkit-autofill {
   -webkit-text-fill-color: #000 !important;
   background-color: white !important;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+:global(html.dark) input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #3a3a3a inset !important;
+  -webkit-text-fill-color: #fff !important;
 }
 
 .blockForm{
@@ -86,8 +107,13 @@ input:-webkit-autofill {
     width: 300px;
     height: 45px;
     font-size: 20pt;
+    border-radius: 10px;
     cursor: pointer;
 
+}
+
+:global(html.light) .buttonSign{
+    color: white;
 }
 
 

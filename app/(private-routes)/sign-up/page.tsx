@@ -2,11 +2,11 @@
 import Link from 'next/link';
 import css from './SignUp.module.css'
 import { useRouter } from 'next/navigation';
-import { useUserData } from '../lib/store/authStore';
+import { useUserData } from '@/app/lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
-import formSchema from '../validation/formSchema';
-import { validateEmail, validatePassword } from '../validation/formSchema';
+import formSchema from '@/app/validation/formSchema';
+import { validateEmail, validatePassword } from '@/app/validation/formSchema';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -86,11 +86,11 @@ function SignUp(){
                             
                             
 
-                            <button className={css.buttonSign} type="submit">{t('register')}</button>
+                            <button aria-label='Press to register an account' name='register-button' className={css.buttonSign} type="submit">{t('register')}</button>
                             
 
                         
-                        <Link className={css.textLog} href={'/sign-in'}>{t('login')}</Link>
+                        <Link  className={css.textLog} href={'/sign-in'}>{t('login')}</Link>
                     </Form>
                     )}
                     

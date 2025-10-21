@@ -1,5 +1,5 @@
 
-import Products from "../components/Products/Products";
+import Products from "@/app/components/Products/Products";
 import { Metadata } from "next";
 
 

@@ -2,11 +2,11 @@
 import Link from 'next/link';
 import css from './SignIn.module.css'
 import { useRouter } from 'next/navigation';
-import { useUserData } from '../lib/store/authStore';
+import { useUserData } from '../../lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
-import formSchema from '../validation/formSchema';
-import { initialValuesEdit } from '../types/interface';
+import formSchema from '../../validation/formSchema';
+import { initialValuesEdit } from '../../types/interface';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -113,7 +113,7 @@ function SignIn(){
 
                                 
 
-                            <button className={css.buttonSign} type="submit">{t('login')}</button>
+                            <button aria-label='Press to login' name='login-button' className={css.buttonSign} type="submit">{t('login')}</button>
                                        
                         <ul className={css.listProp}>
 

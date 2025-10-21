@@ -17,8 +17,8 @@ function About(){
             <div className={css.wrapperLink}>
                 <h3 className={css.headers}>Додаткові ресурси</h3>
                 <ul className={css.list}>
-                    <li><a target='_blank' href='https://t.me/toucandunstor3reviews'>Відгуки</a></li>
-                    <li><a target='_blank' href='https://t.me/toucandun_catalog'>Каталог</a></li>
+                    <li><a aria-label='Reviews telegram chanell' target='_blank' href='https://t.me/toucandunstor3reviews'>Відгуки</a></li>
+                    <li><a aria-label='Catalog telegram chanell' target='_blank' href='https://t.me/toucandun_catalog'>Каталог</a></li>
                 </ul>
                 
                 

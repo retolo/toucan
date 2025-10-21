@@ -62,7 +62,7 @@
 }
 
 .detailsText{
-    background-color: white;
+    
     color: gray;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     cursor: pointer;
@@ -71,13 +71,19 @@
     display: inline-block;
     margin: 0;
 }
-
+:global(html.dark) .detailsText{
+    color: lightgray
+}
 .detailsText::after{
     display: block;
     content: "";
     border-bottom: solid 2px slategray;
     transform: scaleX(0);  
     transition: transform 250ms ease-in-out;
+}
+
+:global(html.dark) .detailsText::after{
+    border-color: lightgray;
 }
 
 .detailsText:hover::after{
@@ -144,3 +150,5 @@
     letter-spacing: 0.04em;
     padding: 12px;
 }
+
+
