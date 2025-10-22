@@ -22,7 +22,7 @@ function Products(){
     
     return(
         <div className={css.container}>
-            <div data-aos="fade-up" >
+            <div data-aos="fade-up"  className={css.wrapperProducts}>
                 <ul className={css.listProducts}>
                     {items.map((item, i) =>(
                         <li 

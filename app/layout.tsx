@@ -29,6 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+          <link rel="icon" type="image/svg+xml" href="/icon-toucan.jpg" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProviderClient>
           <Header />

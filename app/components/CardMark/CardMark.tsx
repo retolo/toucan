@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import css from './CardMark.module.css'
 import 'swiper/css';
+import '../../swiper-custom.css'
 import { Navigation, Thumbs} from 'swiper/modules';
 import { SwiperSlide, Swiper as Slide } from "swiper/react";
 import { itemsMark } from "@/app/db/db";
@@ -90,7 +91,7 @@ function CardMark({id}: CardMarkProps){
                     
                     <div>
                         <div className="swiper">
-                           <Slide
+                           <Slide 
                                 spaceBetween={10}
                                 navigation={{
                                         nextEl: '.swiper-button-next',
@@ -100,15 +101,15 @@ function CardMark({id}: CardMarkProps){
                                 modules={[Navigation, Thumbs]}
                                 className={css.mainSwiper}
                             >
-                                <SwiperSlide >
+                                <SwiperSlide>
                                     {item !== undefined &&
-                                        <Image src={item.img} alt={item.name} width={500} height={500} />
+                                        <Image className={css.imageProduct} src={item.img} alt={item.name} width={500} height={500} />
                                     }
                                     ...
                                 </SwiperSlide>
                                 <SwiperSlide >
                                     {item !== undefined &&
-                                        <Image src={item.img} alt={item.name} width={500} height={500} />
+                                        <Image className={css.imageProduct}  src={item.img} alt={item.name} width={500} height={500} />
                                     }
                                     ...
                                 </SwiperSlide>

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
+
 function Home(){
 
     const {t} = useTranslation();
@@ -38,7 +39,7 @@ function Home(){
               </a>
             <ul className={css.listItems}>
               {itemsHome.map((item, i) =>(
-                <li 
+                <li  
                   className={css.blockProducts} 
                   key={item.id}
                   data-aos="zoom-in"

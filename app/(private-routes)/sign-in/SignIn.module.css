@@ -133,6 +133,9 @@ input:-webkit-autofill {
 
 
 .inputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   position: relative;
   width: 300px;
   margin-bottom: 20px;
@@ -200,4 +203,47 @@ input:-webkit-autofill {
 
 .githubIcon{
     cursor: pointer;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 569px) and (min-width: 481px){
+    .formWrapper{
+        width: 400px;
+        height: 450px;
+    }
+
+    .togglePsd{
+        left: 82%;
+        top: 34%
+    }
+}
+
+@media screen and (max-width: 480px) and (min-width: 320px){
+    .formWrapper{
+        width: 320px;
+        height: 450px;
+    }
+
+    .togglePsd{
+        left: 82%;
+        top: 34%
+    }
+
+    .buttonSign{
+        width: 250px;
+        font-size: 18pt;
+    }
+
+    .inputs{
+        width: 250px;
+    }
+
+    .labelInput{
+        left: 12%;
+    }
 }

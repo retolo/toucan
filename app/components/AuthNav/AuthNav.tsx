@@ -64,8 +64,8 @@ function AuthNav(){
                             <option aria-label="Ukraine language"  value={'ua'}>UA</option>
                             <option aria-label="English language" value={'en'}>EN</option>
                         </select></li>
-                    <li ><Link href={'/catalog'}>{t('catalog')}</Link></li>
-                    <li><Link href={'/cart'}>{t('cart')}</Link></li>
+                    <li><Link className={css.catalog} href={'/catalog'}>{t('catalog')}</Link></li>
+                    <li><Link className={css.cart} href={'/cart'}>{t('cart')}</Link></li>
                     <li className={css.logOut} onClick={handleLogOut}>{t('logout')}</li>
                     
                 </ul>
@@ -89,9 +89,9 @@ function AuthNav(){
                             <option aria-label="Ukraine language" value={'ua'}>UA</option>
                             <option aria-label="English language" value={'en'}>EN</option>
                         </select></li>
-                    <li><Link href={'/catalog'}>{t('catalog')}</Link></li>
-                    <li><Link href={'/sign-in'}>{t('login')}</Link></li>
-                    <li><Link href={'/sign-up'}>{t('register')}</Link></li>
+                    <li><Link className={css.catalog} href={'/catalog'}>{t('catalog')}</Link></li>
+                    <li><Link className={css.login} href={'/sign-in'}>{t('login')}</Link></li>
+                    <li><Link className={css.register} href={'/sign-up'}>{t('register')}</Link></li>
                     
                 </ul>
             }

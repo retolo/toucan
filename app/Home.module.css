@@ -14,9 +14,9 @@
 .hero{
     margin-top: 40px;
     /* border: 1px solid black; */
-    background-image: url("/photo_2025-07-29_20-41-30.jpg");
+    background-image: url("/home-photo-min.png");
     height: 500px;
-    width: 1200px;
+    width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -27,6 +27,7 @@
     font-style: italic;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 30px;
+     box-sizing: border-box; /* важно при паддингах */
 }
 .textHero{
     font-size: 44pt;
@@ -129,4 +130,184 @@
 :global(html.dark) .helpButton{
     background-color: gray;
     color: white;
+}
+
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .container {
+    max-width: 767px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    width: 100%; /* ✅ вместо 767px */
+    height: 300px;
+    max-width: 767px;
+  }
+
+  .textHero {
+    font-size: 30pt;
+  }
+
+  .listHelp{
+    gap: 65px
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 720px) {
+  .container {
+
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hero {
+    width: 100%; /* ✅ вместо 767px */
+    height: 300px;
+    max-width: 767px;
+  }
+
+  .textHero {
+    font-size: 25pt;
+  }
+
+  .headerItems{
+    font-size: 22pt;
+  }
+
+  .blockProducts{
+    width: 250px;
+    height: 300px;
+  }
+
+  .listHelp{
+    gap: 50px
+  }
+  .listItems{
+    gap:20px
+  }
+}
+
+
+@media screen and (max-width: 719px) and (min-width: 570px) {
+  .container {
+    max-width: 570px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hero {
+    width: 100%; /* ✅ вместо 767px */
+    height: 300px;
+
+  }
+
+  .textHero {
+    font-size: 15pt;
+  }
+
+  .headerItems{
+    font-size: 18pt;
+  }
+
+  .blockProducts{
+    width: 220px;
+    height: 280px;
+  }
+
+  .listHelp{
+    gap: 65px
+  }
+  .listItems{
+    gap:15px
+  }
+
+  .helpButton{
+    width: 120px;
+    font-size: 12pt;
+  }
+}
+
+@media screen and (max-width: 569px) and (min-width: 481px){
+      .container {
+    max-width: 481px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hero {
+    width: 100%; /* ✅ вместо 767px */
+    height: 300px;
+
+  }
+
+  .textHero {
+    font-size: 15pt;
+  }
+
+  .headerItems{
+    font-size: 15pt;
+  }
+
+  .blockProducts{
+    width: 180px;
+    height: 240px;
+    font-size: 12pt;
+  }
+
+  .listHelp{
+    gap: 25px
+  }
+  .listItems{
+    flex-wrap: wrap;
+    gap:15px
+  }
+
+  .helpButton{
+    width: 120px;
+    font-size: 12pt;
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 320px){
+      .container {
+    max-width: 320px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hero {
+    width: 100%; /* ✅ вместо 767px */
+    height: 300px;
+
+  }
+
+  .textHero {
+    font-size: 10pt;
+  }
+
+  .headerItems{
+    font-size: 12pt;
+  }
+
+  .blockProducts{
+    width: 180px;
+    height: 240px;
+    font-size: 12pt;
+  }
+
+  .listHelp{
+    flex-direction: column;
+    gap: 15px
+  }
+  .listItems{
+    flex-wrap: wrap;
+    gap:15px
+  }
+
+  .helpButton{
+    width: 250px;
+    font-size: 15pt;
+  }
 }

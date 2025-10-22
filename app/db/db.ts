@@ -1,29 +1,29 @@
 export const items = [
-    {id: '1', img: '/items/one.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '2', img: '/items/two.jpg', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
-    {id: '3', img: '/items/three.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '4', img: '/items/four.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '5', img: '/items/one.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '6', img: '/items/two.jpg', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
-    {id: '7', img: '/items/three.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '8', img: '/items/four.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'}
+    {id: '1', img: '/items/one-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '2', img: '/items/two-photo-min.png', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
+    {id: '3', img: '/items/three-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '4', img: '/items/four-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '5', img: '/items/one-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '6', img: '/items/two-photo-min.png', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
+    {id: '7', img: '/items/three-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '8', img: '/items/four-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'}
 ]
 
 
 export const itemsHome = [
-    {id: '1', img: '/items/one.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '2', img: '/items/two.jpg', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
-    {id: '3', img: '/items/three.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '4', img: '/items/four.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '5', img: '/items/one.jpg', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
-    {id: '6', img: '/items/two.jpg', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
+    {id: '1', img: '/items/one-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '2', img: '/items/two-photo-min.png', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
+    {id: '3', img: '/items/three-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '4', img: '/items/four-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '5', img: '/items/one-photo-min.png', price: '3499 UAH', name: 'Project G/R CUNTIER ZIP HOODIE'},
+    {id: '6', img: '/items/two-photo-min.png', price: '3099 UAH', name: 'Project G/R LONDON ZIP HOODIE'},
 
 ]
 
 export const itemsMark = [
     {
         id: '1', 
-        img: '/items/one.jpg', 
+        img: '/items/one-photo-min.png', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'], 
@@ -31,7 +31,7 @@ export const itemsMark = [
     },  
     {
         id: '2', 
-        img: '/items/two.jpg', 
+        img: '/items/two-photo-min.png', 
         price: '3099 UAH', 
         name: 'Project G/R LONDON ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -39,7 +39,7 @@ export const itemsMark = [
     },
     {
         id: '3', 
-        img: '/items/three.jpg', 
+        img: '/items/three-photo-min.png', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -47,7 +47,7 @@ export const itemsMark = [
     },
     {
         id: '4', 
-        img: '/items/four.jpg', 
+        img: '/items/four-photo-min.png', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -55,7 +55,7 @@ export const itemsMark = [
     },
         {
         id: '5', 
-        img: '/items/one.jpg', 
+        img: '/items/one-photo-min.png', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'], 
@@ -63,7 +63,7 @@ export const itemsMark = [
     },  
     {
         id: '6', 
-        img: '/items/two.jpg', 
+        img: '/items/two-photo-min.png', 
         price: '3099 UAH', 
         name: 'Project G/R LONDON ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -71,7 +71,7 @@ export const itemsMark = [
     },
     {
         id: '7', 
-        img: '/items/three.jpg', 
+        img: '/items/three-photo-min.png', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
@@ -79,7 +79,7 @@ export const itemsMark = [
     },
     {
         id: '8', 
-        img: '/items/four.jpg', 
+        img: '/items/four-photo-min.png', 
         price: '3499 UAH', 
         name: 'Project G/R CUNTIER ZIP HOODIE', 
         sizes: ['S', 'M', 'L'],
