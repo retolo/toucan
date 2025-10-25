@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import React from "react";
 import ThemeProviderClient from "./providers/ThemeProviderClient";
+import Providers from "./(private-routes)/providers";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,7 +40,7 @@ export default function RootLayout({
           <Header />
           <main>
             
-                {children}
+                <Providers> {children} </Providers>
 
           </main>
           <Footer/>

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import css from './SignUp.module.css'
 import { useRouter } from 'next/navigation';
-import { useUserData } from '@/app/lib/store/authStore';
+// import { useUserData } from '@/app/lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '@/app/validation/formSchema';
@@ -11,6 +11,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import {registerUser} from '../../lib/Apis/clientApis';
+import { useMutation } from '@tanstack/react-query';
+import { ApiError } from '@/app/api/api';
+
+
 
 function SignUp(){
 
@@ -22,9 +27,9 @@ function SignUp(){
             offset: 100,
             once: true
         })
-    })
+    }, [])
     const router = useRouter();
-    const {users, setUserData} = useUserData()
+    // const {users, setUserData} = useUserData()
 
      interface initialValuesEdit{
         email: string,
@@ -36,33 +41,60 @@ function SignUp(){
         password: ''
     }
     
-    const handleRegister = (values: initialValuesEdit) =>{
 
-        if(users.some((user) => user.email === values.email)){
 
-            toast('Ви вже зареєстрованні!', {
-                position: 'top-center',
-                theme: 'light',
-                closeOnClick: true,
-                autoClose: 3000,
-                draggable: true,
-                progress: undefined,
-                transition: Slide,
-                hideProgressBar: false,
-                
-            })
-        }else{
-            setUserData(values.email, values.password);
-            console.log(values.email, values.password)
-            router.push('/sign-in');
+        const handleRegisterUser = async (values: initialValuesEdit) =>{
+            try {
+                console.log(values)
+                const response = await registerUser({email: values.email, password: values.password});
+
+                if(response){
+                    toast('Успішна реєстрація', {
+                        position: 'top-center',
+                        theme: 'light',
+                        closeOnClick: true,
+                        autoClose: 3000,
+                        draggable: true,
+                        progress: undefined,
+                        transition: Slide,
+                        hideProgressBar: false,
+                        
+                    })
+                    router.push('/login')
+                }else{
+                    toast('Ви вже зареєстрованні!', {
+                        position: 'top-center',
+                        theme: 'light',
+                        closeOnClick: true,
+                        autoClose: 3000,
+                        draggable: true,
+                        progress: undefined,
+                        transition: Slide,
+                        hideProgressBar: false,
+                        
+                    })
+                }
+            } catch (error) {
+                const err = error as ApiError;
+                toast(err.name, {
+                    position: 'top-center',
+                    theme: 'light',
+                    closeOnClick: true,
+                    autoClose: 3000,
+                    draggable: true,
+                    progress: undefined,
+                    transition: Slide,
+                    hideProgressBar: false,
+                    
+                })
+            }
         }
-        
-        }
+    
 
     return(
         <div className={css.blockForm}>
             <div className={css.block} data-aos='fade-up'>
-                <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleRegister}>
+                <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleRegisterUser}>
                     {({errors, touched}) =>(
                         <Form  className={css.formWrapper}>
 

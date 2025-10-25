@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import css from './SignIn.module.css'
 import { useRouter } from 'next/navigation';
-import { useUserData } from '../../lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '../../validation/formSchema';
@@ -10,12 +9,13 @@ import { initialValuesEdit } from '../../types/interface';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-
+import { useMutation } from '@tanstack/react-query';
+import { loginUser } from '@/app/lib/Apis/clientApis';
 import { useTranslation } from 'react-i18next';
+import { AxiosError } from 'axios';
+import { ApiError } from 'next/dist/server/api-utils';
 
 function SignIn(){
-
-
     const {t} = useTranslation();
     useEffect(() =>{
         AOS.init({
@@ -23,9 +23,8 @@ function SignIn(){
             offset: 100,
             once: true
         })
-    })
+    }, [])
     const router = useRouter();
-    const {users, setAuthenticatedPerson} = useUserData()
 
     
 
@@ -34,61 +33,60 @@ function SignIn(){
         password: '',
         showPassword: false,
     }
-    
-    
-    const handleLogin = (values: initialValuesEdit) =>{
-        
-        if(users.some((user) => user.email === values.email && user.password === values.password)){
+ 
 
-            toast('Успішний вхід', {
-                position: 'top-center',
-                theme: 'light',
-                closeOnClick: true,
-                autoClose: 3000,
-                draggable: true,
-                progress: undefined,
-                transition: Slide,
-                hideProgressBar: false,
-                
-            })
-            setAuthenticatedPerson(true);
-            router.push('/')
-        }else if(users.some((user) => user.email === values.email && user.password !== values.password)){
-            
-            toast('Не правильний пароль або пошта', {
-                position: 'top-center',
-                theme: 'light',
-                closeOnClick: true,
-                autoClose: 3000,
-                draggable: true,
-                progress: undefined,
-                transition: Slide,
-                hideProgressBar: false,
-                
-            })
-        }else{
-            toast('Ви не зареєстрованні!', {
-                position: 'top-center',
-                theme: 'light',
-                closeOnClick: true,
-                autoClose: 3000,
-                draggable: true,
-                progress: undefined,
-                transition: Slide,
-                hideProgressBar: false,
-                
-            })
+
+
+    const handleLoginUser = async (values: initialValuesEdit) =>{
+        try {
+            const response = await loginUser({email: values.email, password: values.password});
+            console.log(response);
+            if(response){
+               toast('Успішний вхід', {
+                    position: 'top-center',
+                    theme: 'light',
+                    closeOnClick: true,
+                    autoClose: 3000,
+                    draggable: true,
+                    progress: undefined,
+                    transition: Slide,
+                    hideProgressBar: false,
+                    
+                })
+             router.push('/');
+            }else{
+                toast('Не правильний пароль або пошта', {
+                    position: 'top-center',
+                    theme: 'light',
+                    closeOnClick: true,
+                    autoClose: 3000,
+                    draggable: true,
+                    progress: undefined,
+                    transition: Slide,
+                    hideProgressBar: false,
+                    
+                })
+            }
+        } catch (error) {
+            const err = error as ApiError;
+                    toast(err.name, {
+                        position: 'top-center',
+                        theme: 'light',
+                        closeOnClick: true,
+                        autoClose: 3000,
+                        draggable: true,
+                        progress: undefined,
+                        transition: Slide,
+                        hideProgressBar: false,          
+                })
         }
-         
-         
-
     }
 
  
     return(
         <div className={css.blockForm}>
             <div className={css.block} data-aos='fade-up'>
-                <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleLogin}>
+                <Formik initialValues={initialValues} validationSchema={formSchema} onSubmit={handleLoginUser}>
                     {({values, setFieldValue}) =>(
                         <Form  className={css.formWrapper}>
 
