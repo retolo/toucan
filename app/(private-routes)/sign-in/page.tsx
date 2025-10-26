@@ -9,11 +9,10 @@ import { initialValuesEdit } from '../../types/interface';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import { useMutation } from '@tanstack/react-query';
 import { loginUser } from '@/app/lib/Apis/clientApis';
 import { useTranslation } from 'react-i18next';
-import { AxiosError } from 'axios';
 import { ApiError } from 'next/dist/server/api-utils';
+import { useUserData } from '@/app/lib/store/authStore';
 
 function SignIn(){
     const {t} = useTranslation();
@@ -25,7 +24,7 @@ function SignIn(){
         })
     }, [])
     const router = useRouter();
-
+    const {setAuthenticatedPerson} = useUserData()
     
 
     const initialValues: initialValuesEdit ={
@@ -40,7 +39,6 @@ function SignIn(){
     const handleLoginUser = async (values: initialValuesEdit) =>{
         try {
             const response = await loginUser({email: values.email, password: values.password});
-            console.log(response);
             if(response){
                toast('Успішний вхід', {
                     position: 'top-center',
@@ -53,6 +51,7 @@ function SignIn(){
                     hideProgressBar: false,
                     
                 })
+                setAuthenticatedPerson(true);
              router.push('/');
             }else{
                 toast('Не правильний пароль або пошта', {

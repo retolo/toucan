@@ -45,7 +45,6 @@ function SignUp(){
 
         const handleRegisterUser = async (values: initialValuesEdit) =>{
             try {
-                console.log(values)
                 const response = await registerUser({email: values.email, password: values.password});
 
                 if(response){
@@ -60,7 +59,7 @@ function SignUp(){
                         hideProgressBar: false,
                         
                     })
-                    router.push('/login')
+                    router.push('/sign-in')
                 }else{
                     toast('Ви вже зареєстрованні!', {
                         position: 'top-center',

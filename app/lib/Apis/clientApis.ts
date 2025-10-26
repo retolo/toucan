@@ -12,6 +12,8 @@ type LoginUser ={
     password: string
 }
 
+
+
 export  const registerUser = async (data: RegisterUser) =>{
     const response = await nextServer.post('/auth/register', data)
 
@@ -23,8 +25,19 @@ export  const registerUser = async (data: RegisterUser) =>{
 
 
 export const loginUser = async (data: LoginUser) =>{
-    console.log('📤 login payload:', data);
     const response = await nextServer.post('/auth/login', data);
+
+    return response.data;
+}
+
+export const logoutUser = async () =>{
+    const response = await nextServer.post('/auth/logout');
+    return response;
+}
+
+export const checkSession = async () =>{
+    const response = await nextServer.get('/auth/checkSession')
+
 
     return response.data;
 }

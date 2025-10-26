@@ -8,6 +8,7 @@ import '../../utils/i18next';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import { logoutUser } from "@/app/lib/Apis/clientApis";
 function AuthNav(){
 
     const {setTheme} = useTheme();
@@ -17,8 +18,9 @@ function AuthNav(){
 
     const {t, i18n} = useTranslation();
     
-    const handleLogOut = () =>{
-        setAuthenticatedPerson(false);
+    const handleLogOut = async () =>{
+        await logoutUser();
+        setAuthenticatedPerson(false)
         router.push('/')
     }
 
