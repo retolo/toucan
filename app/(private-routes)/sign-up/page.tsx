@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import css from './SignUp.module.css'
 import { useRouter } from 'next/navigation';
-// import { useUserData } from '@/app/lib/store/authStore';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Field, Form, Formik } from 'formik';
 import formSchema from '@/app/validation/formSchema';
@@ -12,7 +11,6 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {registerUser} from '../../lib/Apis/clientApis';
-import { useMutation } from '@tanstack/react-query';
 import { ApiError } from '@/app/api/api';
 
 
@@ -29,7 +27,6 @@ function SignUp(){
         })
     }, [])
     const router = useRouter();
-    // const {users, setUserData} = useUserData()
 
      interface initialValuesEdit{
         email: string,
