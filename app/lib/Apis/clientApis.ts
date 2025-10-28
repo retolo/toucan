@@ -41,3 +41,16 @@ export const checkSession = async () =>{
 
     return response.data;
 }
+
+
+export const getOauthUrl = async () =>{
+    const response = await nextServer.get('/auth/generateOauthUrl');
+    return response;
+}
+
+
+
+export const confirmOauth = async (code: string) =>{
+    const response = await nextServer.post('/auth/confirmOauth', {code});
+    return response;
+}
