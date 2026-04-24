@@ -4,7 +4,7 @@ import { AxiosError } from "axios";
 export type ApiError = AxiosError<{error: string}>
 
 export const api = axios.create({
-    baseURL: 'https://toucan-back-end.onrender.com',
+    baseURL: 'http://localhost:4000',
     withCredentials: true,
     
 })

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ApiError, api } from "../../api";
+import { api, ApiError } from "../api";
 import { cookies } from "next/headers";
 
 

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse} from "next/server";
-import { api, ApiError} from "../../api";
+import { api, ApiError } from "../api";
 import {parse} from 'cookie';
 import { cookies } from "next/headers";
 
@@ -13,7 +13,6 @@ export async function POST(request: NextRequest) {
         const data = await api.post('/login', body);
 
         const cookieStore = await cookies();
-
         const setCookie = data.headers['set-cookie']
 
         if(setCookie){

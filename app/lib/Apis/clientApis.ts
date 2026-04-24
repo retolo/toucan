@@ -15,7 +15,7 @@ type LoginUser ={
 
 
 export  const registerUser = async (data: RegisterUser) =>{
-    const response = await nextServer.post('/auth/register', data)
+    const response = await nextServer.post('/register', data)
 
 
 
@@ -25,18 +25,18 @@ export  const registerUser = async (data: RegisterUser) =>{
 
 
 export const loginUser = async (data: LoginUser) =>{
-    const response = await nextServer.post('/auth/login', data);
+    const response = await nextServer.post('/login', data);
 
     return response.data;
 }
 
 export const logoutUser = async () =>{
-    const response = await nextServer.post('/auth/logout');
+    const response = await nextServer.post('/logout');
     return response;
 }
 
 export const checkSession = async () =>{
-    const response = await nextServer.get('/auth/checkSession')
+    const response = await nextServer.get('/checkSession')
 
 
     return response.data;
@@ -44,13 +44,13 @@ export const checkSession = async () =>{
 
 
 export const getOauthUrl = async () =>{
-    const response = await nextServer.get('/auth/generateOauthUrl');
+    const response = await nextServer.get('/generateOauthUrl');
     return response;
 }
 
 
 
 export const confirmOauth = async (code: string) =>{
-    const response = await nextServer.post('/auth/confirmOauth', {code});
+    const response = await nextServer.post('/confirmOauth', {code}, {headers:{'Content-type': 'application/json'}});
     return response;
 }

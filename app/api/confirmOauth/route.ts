@@ -1,15 +1,14 @@
 import { NextResponse, NextRequest} from "next/server";
-import { ApiError, api } from "../../api";
-import { cookies } from "next/headers";
+import { api, ApiError } from "../api";
 import {parse} from 'cookie';
 export async function POST(req: NextRequest) {
-    const body = await req.json();
+    
     try {
 
-        
-        const data= await api.post('/confirm-oauth', body);
+        const body = await req.json();
+        const data = await api.post('/confirm-oauth', body);
 
-        const cookieStore = await cookies();
+        const response = NextResponse.json(data.data);
 
         const setCookie = data.headers['set-cookie'];
 
@@ -28,23 +27,18 @@ export async function POST(req: NextRequest) {
 
 
                 if(parsed.accessToken){
-                    cookieStore.set('accessToken', parsed.accessToken, options)
+                    response.cookies.set('accessToken', parsed.accessToken, options)
                 }
 
                 if(parsed.refreshToken){
-                    cookieStore.set('refreshToken', parsed.refreshToken,options)
+                    response.cookies.set('refreshToken', parsed.refreshToken,options)
                 }
             }
-
-
-            return NextResponse.json(data.data);
-        }
-
-        return NextResponse.json({error: 'Unauthorized'}, {status: 401})
-
-        
+        } 
+        return response;
     } catch (error) {
         const err = error as ApiError;
+
 
         return NextResponse.json(
             {

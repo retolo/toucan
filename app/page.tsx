@@ -42,8 +42,6 @@ function Home(){
                 <li  
                   className={css.blockProducts} 
                   key={item.id}
-                  data-aos="zoom-in"
-                  data-aos-delay={i * 100}
                 >
                   <Link href={`/card/${item.id}`}>
                     <Image src={item.img} alt={item.name} width={300} height={300}  />
@@ -63,9 +61,9 @@ function Home(){
               </li>
 
               <li data-aos='fade-up'>
-                <a aria-label="Manegger chat link" href="https://t.me/toucandunstor3menegger" target="_blank">
-                  <button aria-label="Button to chat with managger" name="manager-button" className={css.helpButton} type="button">{t('manager')}</button>
-                </a>
+                <Link href={'/catalog'}>
+                  <button aria-label="Button to chat with manager" name="manager-button" className={css.helpButton} type="button">{t('catalog')}</button>
+                </Link>
               </li>
 
               <li data-aos='fade-left'>

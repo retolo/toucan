@@ -5,8 +5,10 @@ import { useEffect, useState } from "react"
 import css from './CardMark.module.css'
 import 'swiper/css';
 import '../../swiper-custom.css'
-import { Navigation, Thumbs} from 'swiper/modules';
-import { SwiperSlide, Swiper as Slide } from "swiper/react";
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation, Thumbs, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { itemsMark } from "@/app/db/db";
 import { CardMarkProps, ItemProps } from "@/app/types/interface";
 import { CartItem, OrderItems } from "@/app/types/type";
@@ -15,6 +17,7 @@ import ModalOrder from "../ModalOrder/ModalOrder";
 import { useUserData } from "@/app/lib/store/authStore";
 import { useTranslation } from 'react-i18next';
 import { useRouter } from "next/navigation";
+
 
 function CardMark({id}: CardMarkProps){
     const [item, setItem] = useState<ItemProps | undefined>(undefined)
@@ -74,6 +77,23 @@ function CardMark({id}: CardMarkProps){
    }
 
    
+   console.log(item)
+
+   
+const pagination = {
+    clickable: true,
+    renderBullet: function (index, className){
+
+        
+        return `
+                <span class="${className}">
+                    <img src="${item !== undefined && item.img[index]}/>
+                </span>
+        
+        
+        `;
+    }
+   }
 
 
 
@@ -86,36 +106,44 @@ function CardMark({id}: CardMarkProps){
                     </svg>
                 </button>
                 <div className={css.blockRes}>
-                    <div className={css.gallery}>
-                </div>    
+                       
                     
-                    <div>
-                        <div className="swiper">
-                           <Slide 
+                    
+                        
+                           <Swiper 
                                 spaceBetween={10}
                                 navigation={{
                                         nextEl: '.swiper-button-next',
                                         prevEl: '.swiper-button-prev',
                                 }}
                                 thumbs={{ swiper: thumbsSwiper }}
-                                modules={[Navigation, Thumbs]}
-                                className={css.mainSwiper}
+                                pagination={pagination}
+                                
+                                
+                                modules={[Navigation, Thumbs, Pagination]}
+                                className={`mySwiper ${css.mainSwiper}`}
                             >
                                 <SwiperSlide>
                                     {item !== undefined &&
-                                        <Image className={css.imageProduct} src={item.img} alt={item.name} width={500} height={500} />
+                                        <Image className={css.imageProduct} src={item.img} alt={item.name} width={650} height={650} />
                                     }
-                                    ...
+                                    
                                 </SwiperSlide>
                                 <SwiperSlide >
                                     {item !== undefined &&
-                                        <Image className={css.imageProduct}  src={item.img} alt={item.name} width={500} height={500} />
+                                        <Image className={css.imageProduct}  src={item.img} alt={item.name} width={650} height={650} />
                                     }
-                                    ...
+                                    
                                 </SwiperSlide>
-                            </Slide>
-                        </div>
-                    </div>
+                                <div className="swiper-button-prev"></div>
+                                <div className="swiper-button-next"></div>
+                                
+                            </Swiper>
+                            
+                            
+                        
+                        
+                    
 
                     <div className={css.blockInfoItem}>
                         {item !== undefined &&
