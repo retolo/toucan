@@ -1,5 +1,5 @@
 .container{
-    /* max-width: 1200px; */
+    max-width: 1300px;
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 150px;
@@ -9,9 +9,9 @@
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 150px;
-    margin-left: 400px;
+    /* margin-left: 400px; */
 }
 
 .listItemProps{

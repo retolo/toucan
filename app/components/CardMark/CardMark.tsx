@@ -80,20 +80,7 @@ function CardMark({id}: CardMarkProps){
    console.log(item)
 
    
-const pagination = {
-    clickable: true,
-    renderBullet: function (index, className){
 
-        
-        return `
-                <span class="${className}">
-                    <img src="${item !== undefined && item.img[index]}/>
-                </span>
-        
-        
-        `;
-    }
-   }
 
 
 
@@ -117,7 +104,7 @@ const pagination = {
                                         prevEl: '.swiper-button-prev',
                                 }}
                                 thumbs={{ swiper: thumbsSwiper }}
-                                pagination={pagination}
+                                pagination={true}
                                 
                                 
                                 modules={[Navigation, Thumbs, Pagination]}

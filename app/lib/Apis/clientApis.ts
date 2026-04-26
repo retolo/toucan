@@ -1,4 +1,5 @@
 'use client'
+import axios from "axios"
 import { nextServer } from "../api"
 
 type RegisterUser = {
@@ -53,4 +54,27 @@ export const getOauthUrl = async () =>{
 export const confirmOauth = async (code: string) =>{
     const response = await nextServer.post('/confirmOauth', {code}, {headers:{'Content-type': 'application/json'}});
     return response;
+}
+
+const apiKey = process.env.API_KEY
+
+export const getTypeOfWarehouseRef = async (cityName: string) =>{
+    const response = await axios.post('https://api.novaposhta.ua/v2.0/json/', 
+        {
+            
+                "apiKey": apiKey,
+                "modelName": "AddressGeneral",
+                "calledMethod": "searchSettlements",
+                "methodProperties": {
+                    "CityName": cityName,
+                    "Limit": "50",
+		            "Page": "1"
+                }
+            
+        }
+    )
+
+
+
+    return response.data;
 }

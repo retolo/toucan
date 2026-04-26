@@ -7,7 +7,12 @@ import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
-
+import { Autoplay, Pagination } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import {Swiper, SwiperSlide} from 'swiper/react'
+import { getTypeOfWarehouseRef } from "./lib/Apis/clientApis";
 function Home(){
 
     const {t} = useTranslation();
@@ -19,14 +24,57 @@ function Home(){
       once: true,
     });
   })
+
+
+
+  useEffect(() =>{
+    getTypeOfWarehouseRef('київ')
+  }, [])
     
   return(
     <>
       <section  className={css.container}>
         <div className={css.blockHomePage}>
-            <div  className={css.hero} data-aos="fade-up">
-              <p className={css.textHero}>TOUCANDUN.STOR3 - SWAG IN EVERY HOME</p>
-            </div>
+            <Swiper 
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+
+              pagination={{
+                type: 'progressbar'
+              }}
+              modules={[Pagination, Autoplay]}
+
+              className="mySWiper"
+            
+            >
+
+              <SwiperSlide>
+                <div  className={css.hero} data-aos="fade-up">
+                  <p className={css.textHero}>TOUCANDUN.STOR3 - SWAG IN EVERY HOME</p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div  className={css.heroSecond} data-aos="fade-up">
+                  <p className={css.textHero}>TOUCANDUN.STOR3 - SWAG IN EVERY HOME</p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div  className={css.heroThird} data-aos="fade-up">
+                  <p className={css.textHero}>TOUCANDUN.STOR3 - SWAG IN EVERY HOME</p>
+                </div>
+              </SwiperSlide>
+
+
+            </Swiper>
+
+
+
+
+            
             
             
             <div className={css.blockItems} data-aos="fade-up">

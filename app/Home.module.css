@@ -12,8 +12,8 @@
 
 
 .hero{
-    margin-top: 40px;
-    /* border: 1px solid black; */
+
+    
     background-image: url("/home-photo-min.png");
     height: 500px;
     width: 100%;
@@ -25,13 +25,43 @@
     align-items: center; 
     font-size: 32pt;
     font-style: italic;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 30px;
-     box-sizing: border-box; /* важно при паддингах */
 }
-.textHero{
+
+.heroSecond{
+    background-image: url("/home-photo-2.png");
+    height: 500px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-size: 32pt;
+    font-style: italic;
+}
+
+
+.heroThird{
+    background-image: url("/home-photo-3.jpg");
+    height: 500px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-size: 32pt;
+    font-style: italic;
+}
+
+
+
+
+ .textHero{
     font-size: 44pt;
-}
+} 
 
 
 .listHelp{
