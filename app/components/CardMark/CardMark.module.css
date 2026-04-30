@@ -184,6 +184,10 @@
     letter-spacing: 0.04em;
     padding: 12px;
 }
+:global(html.dark) .backButton{
+    background-color: #494949;
+    color: #fff;
+}
 @media screen and (max-width: 1023px) and (min-width: 768px) {
     .container{
         max-width: 768px;

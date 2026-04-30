@@ -33,6 +33,7 @@ export const languageSettings = {
         deleteCartItem: 'Видалити',
         backButton: 'Повернутися',
         itemInfo: ['- НАПІВОБРАЗНИЙ КРІЙ', '- ПАРОДІЙНИЙ ГРАФІЧНИЙ ДИЗАЙН', '- СКЛАДЕННИЙ-ДИЗАЙН', '- ВІНТАЖНИЙ ОДЯГ, ВИПРАНИЙ', '- ПОШКОДЖЕНІ ДЕТАЛІ'],
+        orderTime: 'Відправлення прибуде завтра до 18:00'
       }
     },
     en: {
@@ -65,6 +66,7 @@ export const languageSettings = {
         deleteCartItem: 'Delete',
         backButton: 'Back',
         itemInfo: ['- RELAXED FIT ', '- PARODY GRAPHIC', '- LAYERED DESIGN ', '- VINTAGE WASHED ', '- DISSTRESSED DETAILS'],
+        orderTime: 'The dispatch will arrive tomorrow before 18:00'
       }
     }
   }

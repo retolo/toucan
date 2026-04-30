@@ -1,0 +1,68 @@
+.backDrop{
+    position:  fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 30px;
+    background-color: #fff;
+    width: 600px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+
+}
+
+:global(html.dark) .modal{
+    background-color: #494949;
+    color: #fff;
+}
+
+.headingDetails{
+    text-align: center;
+    margin-top: 15px;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+}
+
+.wrapperBlockInfoOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 350px;
+    
+}
+
+.blockInfoOrder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    
+}
+
+.detailsText{
+    font-size: 22pt;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+
+}
+
+
+.icon{
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 550px;
+}

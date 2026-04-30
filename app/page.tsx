@@ -79,12 +79,7 @@ function Home(){
             
             <div className={css.blockItems} data-aos="fade-up">
               <h2 className={css.headerItems}>{t('MostPopularProducts')}</h2>
-              <a  className={css.linkUp}  href="#main"><button name="go-up-button" aria-label="Scroll to top" className={css.upButton} type="button">
-                <svg  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
-                  <path fillRule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
-                </svg>
-              </button>
-              </a>
+              
             <ul className={css.listItems}>
               {itemsHome.map((item, i) =>(
                 <li  
@@ -99,7 +94,12 @@ function Home(){
               ))}
             </ul>
           </div>
-
+              <a  className={css.linkUp}  href="#main"><button name="go-up-button" aria-label="Scroll to top" className={css.upButton} type="button">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"  viewBox="0 0 16 16">
+                  <path fillRule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+                </svg>
+              </button>
+              </a>
           <div className={css.blockHelp}>
                 <ul className={css.listHelp}>
               <li data-aos='fade-right'>
