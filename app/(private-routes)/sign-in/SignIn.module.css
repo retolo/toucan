@@ -91,16 +91,24 @@
     font-size: 14pt;
 }
 
-:global(html.dark) .inputs:focus + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
-    color: white;
-}
 
-:global(html.dark) .inputs + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
-    color: white;
-}
-
-:global(html.light) .inputs:focus + .labelInput, .inputs:not(:placeholder-shown) + .labelInput{
+:global(html.light) .inputs + .labelInput {
     color: black;
+}
+
+:global(html.light) .inputs:focus + .labelInput,
+:global(html.light) .inputs:not(:placeholder-shown) + .labelInput {
+    color: black;
+}
+
+
+:global(html.dark) .inputs + .labelInput {
+    color: white;
+}
+
+:global(html.dark) .inputs:focus + .labelInput,
+:global(html.dark) .inputs:not(:placeholder-shown) + .labelInput {
+    color: white;
 }
 
 
@@ -224,10 +232,12 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px){
-    .formWrapper{
-        width: 320px;
-        height: 450px;
+    
+    .blockForm{
+        max-width: 320px;
+        padding: 30px;
     }
+    
 
     .togglePsd{
         left: 82%;

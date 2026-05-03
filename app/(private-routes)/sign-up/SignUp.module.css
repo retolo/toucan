@@ -141,21 +141,28 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 569px) and (min-width: 481px){
-    .formWrapper{
-        width: 400px;
-        height: 450px;
+    .blockForm{
+        max-width: 481px;
+        padding: 30px;
     }
 
     .togglePsd{
         left: 82%;
         top: 34%
     }
+    .validation{
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px){
-    .formWrapper{
-        width: 320px;
-        height: 450px;
+    .validation{
+        text-align: center;
+    }
+
+    .blockForm{
+        max-width: 320px;
+        padding: 30px;
     }
 
     .togglePsd{

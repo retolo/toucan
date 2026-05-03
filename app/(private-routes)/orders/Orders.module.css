@@ -188,6 +188,14 @@
 
     .blockCart{
         width: 100%;
+        box-shadow: none;
+        overflow: visible;
+        height: auto;
+    }
+
+    .wrapper{
+        height: auto;
+        overflow: visible;
     }
 
     .listCart > li{
@@ -210,6 +218,13 @@
     .blockCart{
         width: 100%;
         padding: 10px;
+        box-shadow: none;
+        overflow: visible;
+        height: auto;
+    }
+    .wrapper{
+        overflow: visible;
+        height: auto;
     }
 
     .listCart > li{
@@ -234,6 +249,14 @@
     .blockCart{
         width: 100%;
         padding: 10px;
+        box-shadow: none;
+        overflow: visible;
+        height: auto;
+    }
+
+    .wrapper{
+        height: auto;
+        overflow: visible;
     }
 
     .listCart > li{
@@ -265,6 +288,14 @@
     .blockCart{
         width: 100%;
         padding: 10px;
+        overflow: visible;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .wrapper{
+        overflow: visible;
+        height: auto;
     }
 
     .listCart > li{
