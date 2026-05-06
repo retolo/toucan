@@ -1,0 +1,52 @@
+.backDrop{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+ .modal{
+    background-color: white;
+    width: 310px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 30px;
+    padding: 10px;
+    
+
+}
+
+
+
+:global(html.dark) .modal{
+    background-color: #494949;
+    color: #fff;
+}
+
+
+
+.icon{
+    position: absolute;
+    left: 265px;
+    
+}
+
+
+.linksMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 40px;
+    font-size: 14pt;
+    flex-direction: column;
+}
