@@ -20,8 +20,9 @@
 .burgerMenuIcon{
     position: absolute;
     top: 30px;
-    left: 290px;
+    left: 90%;
     cursor: pointer;
+    display: none;
 }
 
 @media  screen and (max-width: 1023px) and (min-width: 768px) {
@@ -30,9 +31,7 @@
         padding-left: 20px;
         padding-right: 20px;
     }
-    .burgerMenuIcon{
-        display: none;
-    }
+    
 }
 
 
@@ -42,10 +41,8 @@
         padding-left: 30px;
         padding-right: 30px;
     }
-    .burgerMenuIcon{
-        display: none;
-    }
 }
+   
 
 @media screen and (max-width: 719px) and (min-width: 481px) {
     .container{
@@ -57,9 +54,7 @@
     .headerMain{
         font-size: 18pt;
     }
-    .burgerMenuIcon{
-        display: none;
-    }
+    
 }
 
 
@@ -74,8 +69,17 @@
         justify-content: center;
         align-items: center;
     }
+    
+    .burgerMenuIcon{
+        display: flex;
+    }
+
+
 
 
 }
+
+
+
 
 
